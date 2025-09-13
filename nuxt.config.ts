@@ -9,6 +9,10 @@ export default defineNuxtConfig({
     { path: "~/components/layout", pathPrefix: false },
   ],
 
+  plugins: [
+    "@/plugins/pinia-persistedstate.js",
+  ],
+
   modules: [
     '@element-plus/nuxt',
     'nuxt-svgo',
@@ -42,6 +46,8 @@ export default defineNuxtConfig({
     ],
     defaultLocale: "uz",
   },
+
+  ssr: false,
 
   svgo: {
     componentPrefix: "icon",
