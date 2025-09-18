@@ -1,0 +1,5 @@
+<template>
+  <div>
+    <UsersView />
+  </div>
+</template>

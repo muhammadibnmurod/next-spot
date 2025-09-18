@@ -1,13 +1,13 @@
 <template>
-  <div class="flex">
-    <div class="shrink-0 basis-auto">
-      <AppSidebar :collapsed="isSidebarCollapsed" />
+  <div class="flex min-h-[100vh] flex-col">
+    <div class="shrink-0 basis-auto border-b box-content border-[#dfdfdf]">
+      <AppNavbar @toggle-sidebar="toggleSidebar" :collapsible="isSidebarCollapsed" />
     </div>
 
-    <div class="grow basis-auto overflow-hidden bg-gray-0 dark:bg-gray-90">
-      <AppNavbar @toggle-sidebar="toggleSidebar" :collapsed="isSidebarCollapsed" />
-      <div class="p-6 bg-gray-0 dark:bg-gray-90 relative">
-        <NuxtPage />
+    <div class="min-h-[calc(100vh-80px)] flex">
+      <AppSidebar :isCollapse="isSidebarCollapsed" />
+      <div class="dark:bg-gray-700 relative min-h-[calc(100vh-80px)] p-6 w-full">
+        <NuxtPage class="h-full" />
       </div>
     </div>
   </div>
