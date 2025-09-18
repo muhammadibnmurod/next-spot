@@ -100,6 +100,22 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/v1/users/{id}/delete": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post?: never;
+        delete: operations["UsersController_delete"];
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/api/v1/profile/me": {
         parameters: {
             query?: never;
@@ -713,7 +729,7 @@ export interface components {
             success: boolean;
             /** @example 200 */
             statusCode: number;
-            /** @example 2025-09-17T13:24:32.079Z */
+            /** @example 2025-09-18T10:42:43.552Z */
             timestamp: string;
             /** @example /api/example */
             path: string;
@@ -732,7 +748,7 @@ export interface components {
             success: boolean;
             /** @example 200 */
             statusCode: number;
-            /** @example 2025-09-17T13:24:32.078Z */
+            /** @example 2025-09-18T10:42:43.551Z */
             timestamp: string;
             /** @example /api/example */
             path: string;
@@ -748,7 +764,7 @@ export interface components {
             success: boolean;
             /** @example 200 */
             statusCode: number;
-            /** @example 2025-09-17T13:24:32.078Z */
+            /** @example 2025-09-18T10:42:43.552Z */
             timestamp: string;
             /** @example /api/example */
             path: string;
@@ -777,7 +793,7 @@ export interface components {
             success: boolean;
             /** @example 200 */
             statusCode: number;
-            /** @example 2025-09-17T13:24:32.246Z */
+            /** @example 2025-09-18T10:42:43.727Z */
             timestamp: string;
             /** @example /api/example */
             path: string;
@@ -812,16 +828,39 @@ export interface components {
             currentPlan: string;
             workDoneOnTheFact: string;
         };
-        CreateSmetaDTO: {
+        CreateSmetaDto: {
+            /**
+             * @description Unique code for the smeta
+             * @example SMT-001
+             */
             code: string;
-            fileId: string;
+            /**
+             * @description Constructor identifier (optional)
+             * @example 123e4567-e89b-12d3-a456-426614174000
+             */
+            constructorId?: string;
+            /**
+             * @description ProjectObject ID
+             * @example f84c48f9-3b8f-4de3-a9fd-10e83ec5ac12
+             */
+            projectId: string;
+            /**
+             * @description Infrastructure ID
+             * @example 42c5a9e7-7f6c-4a99-9f88-5dbfa5fbc5c2
+             */
+            infraId: string;
+            /**
+             * @description File ID from StorageEntity (optional)
+             * @example f0d3a1b9-9c4d-47ff-b2f8-28f3b2a32222
+             */
+            fileId?: string;
         };
-        ApiResponseCreateSmetaDTO: {
+        ApiResponseCreateSmetaDto: {
             /** @example true */
             success: boolean;
             /** @example 200 */
             statusCode: number;
-            /** @example 2025-09-17T13:24:32.242Z */
+            /** @example 2025-09-18T10:42:43.724Z */
             timestamp: string;
             /** @example /api/example */
             path: string;
@@ -829,7 +868,7 @@ export interface components {
             method: string;
             /** @example FETCHED SUCCESSFULLY */
             message: string;
-            data?: components["schemas"]["CreateSmetaDTO"];
+            data?: components["schemas"]["CreateSmetaDto"];
         };
         CreateMeasurementDto: Record<string, never>;
         UpdateMeasurementDto: Record<string, never>;
@@ -843,7 +882,7 @@ export interface components {
             success: boolean;
             /** @example 200 */
             statusCode: number;
-            /** @example 2025-09-17T13:24:32.211Z */
+            /** @example 2025-09-18T10:42:43.692Z */
             timestamp: string;
             /** @example /api/example */
             path: string;
@@ -865,7 +904,7 @@ export interface components {
             success: boolean;
             /** @example 200 */
             statusCode: number;
-            /** @example 2025-09-17T13:24:32.212Z */
+            /** @example 2025-09-18T10:42:43.692Z */
             timestamp: string;
             /** @example /api/example */
             path: string;
@@ -880,7 +919,7 @@ export interface components {
             success: boolean;
             /** @example 200 */
             statusCode: number;
-            /** @example 2025-09-17T13:24:32.212Z */
+            /** @example 2025-09-18T10:42:43.692Z */
             timestamp: string;
             /** @example /api/example */
             path: string;
@@ -906,7 +945,7 @@ export interface components {
             success: boolean;
             /** @example 200 */
             statusCode: number;
-            /** @example 2025-09-17T13:24:32.206Z */
+            /** @example 2025-09-18T10:42:43.687Z */
             timestamp: string;
             /** @example /api/example */
             path: string;
@@ -1052,6 +1091,25 @@ export interface operations {
         };
         responses: {
             201: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content?: never;
+            };
+        };
+    };
+    UsersController_delete: {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                id: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            200: {
                 headers: {
                     [name: string]: unknown;
                 };
@@ -1772,7 +1830,7 @@ export interface operations {
         };
         requestBody: {
             content: {
-                "application/json": components["schemas"]["CreateSmetaDTO"];
+                "application/json": components["schemas"]["CreateSmetaDto"];
             };
         };
         responses: {
@@ -1781,7 +1839,7 @@ export interface operations {
                     [name: string]: unknown;
                 };
                 content: {
-                    "application/json": components["schemas"]["ApiResponseCreateSmetaDTO"];
+                    "application/json": components["schemas"]["ApiResponseCreateSmetaDto"];
                 };
             };
         };

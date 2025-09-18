@@ -1,3 +1,8 @@
 {
-  "test": "test krill"
+  "test": "test krill",
+  "navigation": {
+    "home": "Бош саҳифа",
+    "users": "Фойдаланувчилар",
+    "objects": "Объектлар"
+  }
 }

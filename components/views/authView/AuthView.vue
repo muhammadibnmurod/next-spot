@@ -93,10 +93,10 @@ import { ImageFlagEn, ImageFlagRu, ImageFlagUz } from '~/assets'
 const flags: {
   [key: string]: { code: "en" | "ru" | "uz" | "kril"; name: string; flag: string }
 } = {
-  en: { code: 'en', name: 'English', flag: ImageFlagEn },
-  ru: { code: 'ru', name: 'Русский', flag: ImageFlagRu },
   uz: { code: 'uz', name: "O'zbek", flag: ImageFlagUz },
   kril: { code: 'kril', name: "Ўзбек", flag: ImageFlagUz },
+  ru: { code: 'ru', name: 'Русский', flag: ImageFlagRu },
+  en: { code: 'en', name: 'English', flag: ImageFlagEn },
 }
 
 const activeLang = ref<'uz' | 'ru' | 'en' | 'kril'>('uz')
@@ -146,7 +146,7 @@ const onSubmit = async () => {
     form.remember ? localStorage.setItem('remember_login', form.login) : localStorage.removeItem('remember_login')
     await router.push('/example')
   } catch (e) {
-    ElMessage.error('Неверный логин или пароль')
+    console.error('Неверный логин или пароль')
   } finally {
     loading.value = false
   }

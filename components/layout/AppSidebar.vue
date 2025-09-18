@@ -11,7 +11,7 @@
               class="flex transition-all items-center gap-3 p-3 !pl-5 dark:bg-gray-800 dark:hover:bg-gray-500"
               :class="{ 'bg-[#7152F30D] border-l-[5px] text-[#605BFF] border-[#605BFF] dark:bg-gray-700': route.fullPath.includes(item.route) }">
               <component :is="item.icon" class="size-5" />
-              <span class="dark:text-gray-300">{{ item.title }}</span>
+              <span class="dark:text-gray-300">{{ $t(`${item.title}`) }}</span>
             </router-link>
           </li>
         </ul>

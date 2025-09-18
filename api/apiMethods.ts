@@ -16,6 +16,7 @@ export const apiMethods = (options?: any) => {
     Users: {
       UsersController_getAll: () => useApi<paths['/api/v1/users']['get']['responses']['200']>('/api/v1/users', { method: 'GET', ...options }),
       UsersController_create: (body: paths['/api/v1/users']['post']['requestBody']['content']['application/json']) => useApi<paths['/api/v1/users']['post']['responses']['201']>(`/api/v1/users`, { method: 'POST', body: body, ...options }),
+      UsersController_delete: (id: string | number) => useApi<void>(`/api/v1/users/${id}/delete`, { method: 'DELETE', ...options }),
     },
     profile: {
       me: () => useApi<paths['/api/v1/profile/me']['get']['responses']['200']>('/api/v1/profile/me', { method: 'GET', ...options }),

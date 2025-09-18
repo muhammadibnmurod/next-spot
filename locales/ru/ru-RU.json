@@ -1,3 +1,8 @@
 {
-  "test": "test ru"
+  "test": "test ru",
+  "navigation": {
+    "home": "Главная",
+    "users": "Пользователи",
+    "objects": "Объекты"
+  }
 }
