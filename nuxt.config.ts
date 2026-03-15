@@ -14,7 +14,6 @@ export default defineNuxtConfig({
   ],
 
   modules: [
-    '@element-plus/nuxt',
     "@nuxtjs/tailwindcss",
     [
       '@nuxtjs/color-mode',
@@ -27,9 +26,6 @@ export default defineNuxtConfig({
     'nuxt-svgo',
     "@nuxtjs/i18n"
   ],
-  elementPlus: {
-    /** Options */
-  },
 
   devServer: {
     host: "*",

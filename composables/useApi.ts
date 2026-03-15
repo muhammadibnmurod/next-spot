@@ -1,4 +1,4 @@
-import { ElNotification } from "element-plus";
+import { useNotification } from "naive-ui";
 
 export default function useApi<T>(url: string, options: any = {}) {
   url = url.replace("/api/v1", "");
@@ -6,6 +6,7 @@ export default function useApi<T>(url: string, options: any = {}) {
   const config = useRuntimeConfig();
   const { getAccessToken, refreshAccessToken } = useAuth();
   const router = useRouter();
+  const notification = useNotification();
   let headers: Record<string, string> = {};
 
   // Устанавливаем заголовок Authorization, если есть токен доступа
@@ -44,9 +45,9 @@ export default function useApi<T>(url: string, options: any = {}) {
     }) => {
       const message = response?._data?.error ?? "Unknown server error";
 
-      ElNotification.error({
+      notification.error({
         title: "Error",
-        message,
+        content: message,
         duration: 3000,
       });
 

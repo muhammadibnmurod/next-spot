@@ -11,7 +11,3 @@ body {
   background-color: #fff;
    font-family: "Comfortaa", sans-serif;
 }
-
-.el-dialog {
-  @apply !my-10 !overflow-y-auto
-}

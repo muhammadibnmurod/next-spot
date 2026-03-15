@@ -1,46 +1,84 @@
 <template>
   <div>
-    <el-table :data="rows" stripe style="width: 99%">
-      <el-table-column type="index" width="50" />
-      <el-table-column prop="name" label="Name">
-        <template #default="scope">
-          <div>{{ scope?.row?.profile?.lastName }} {{ scope?.row?.profile?.firstName }} {{
-            scope?.row?.profile?.middleName }}
-          </div>
-        </template>
-      </el-table-column>
-      <el-table-column prop="profile.position" label="Position" />
-      <el-table-column prop="profile.birthday" label="Birthday" />
-      <el-table-column prop="profile.photo" label="Photo">
-        <template #default="scope">
-          <el-image style="width: 48px; height: 48px" :src="scope?.row?.profile?.photo" :zoom-rate="1.2" :max-scale="7"
-            :min-scale="0.2" :hide-on-click-modal="true" :preview-src-list="[scope?.row?.profile?.photo]" show-progress
-            :initial-index="4" :preview-teleported="true" fit="cover" />
-        </template>
-      </el-table-column>
-
-      <el-table-column label="Actions" width="250">
-        <template #default="scope">
-          <div class="flex gap-2 items-center">
-            <!-- <el-button size="default" class="w-6 h-6" type="primary" :icon="ElIconEdit"
-              @click="$emit('openFormDialog', true, scope?.row)" /> -->
-
-            <el-popconfirm title="Are you sure to delete this?" @confirm="deleteUser(scope?.row.id)">
-              <template #reference>
-                <el-button size="default" class="w-6 h-6" type="danger" :icon="ElIconDelete" />
-              </template>
-            </el-popconfirm>
-          </div>
-        </template>
-      </el-table-column>
-    </el-table>
+    <n-data-table :data="rows" :columns="columns" striped :bordered="false" class="w-[99%]" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { h } from 'vue'
+import type { DataTableColumns } from 'naive-ui'
+import { NButton, NImage, NPopconfirm } from 'naive-ui'
+
+type Row = any
+
 const props = defineProps({
-  rows: { type: Array },
+  rows: { type: Array as () => Row[] },
 })
+
+const columns: DataTableColumns<Row> = [
+  {
+    title: '#',
+    key: 'index',
+    width: 50,
+    render: (_row, index) => index + 1,
+  },
+  {
+    title: 'Name',
+    key: 'name',
+    render: (row) =>
+      `${row?.profile?.lastName ?? ''} ${row?.profile?.firstName ?? ''} ${row?.profile?.middleName ?? ''}`.trim(),
+  },
+  {
+    title: 'Position',
+    key: 'profile.position',
+    render: (row) => row?.profile?.position ?? '',
+  },
+  {
+    title: 'Birthday',
+    key: 'profile.birthday',
+    render: (row) => row?.profile?.birthday ?? '',
+  },
+  {
+    title: 'Photo',
+    key: 'profile.photo',
+    render: (row) =>
+      h(NImage, {
+        src: row?.profile?.photo,
+        width: 48,
+        height: 48,
+        objectFit: 'cover',
+        previewDisabled: !row?.profile?.photo,
+      }),
+  },
+  {
+    title: 'Actions',
+    key: 'actions',
+    width: 140,
+    render: (row) =>
+      h('div', { class: 'flex gap-2 items-center' }, [
+        h(
+          NPopconfirm,
+          {
+            positiveText: 'Delete',
+            negativeText: 'Cancel',
+            onPositiveClick: () => deleteUser(row?.id),
+          },
+          {
+            default: () => 'Are you sure to delete this?',
+            trigger: () =>
+              h(
+                NButton,
+                {
+                  size: 'small',
+                  type: 'error',
+                },
+                { default: () => 'Delete' }
+              ),
+          }
+        ),
+      ]),
+  },
+]
 
 const deleteUser = (id: number) => {
   console.log('delete user', id)

@@ -1,8 +1,9 @@
 <template>
-  <el-header height="80px"
-    class="flex justify-between sticky top-0 !py-4 !px-8 items-center w-full bg-white dark:bg-gray-800 z-0">
+  <n-layout-header
+    class="flex justify-between sticky top-0 !py-4 !px-8 items-center w-full bg-white dark:bg-gray-800 z-0"
+    style="height: 80px"
+  >
     <!-- <div class="flex items-center gap-4">
-      <el-button @click="$emit('toggle-sidebar')">Toggle Sidebar</el-button>
       <div v-if="collapsible" @click="$emit('toggle-sidebar')"
         class="w-12 h-12 dark:bg-gray-80 bg-gray-5 flex items-center justify-center cursor-pointer rounded-full transition-all duration-1000"
         :class="{ 'rotate-180': collapsed }">
@@ -13,7 +14,7 @@
     </div> -->
 
     <div class="flex items-center gap-2">
-      <el-avatar :size="50" src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" />
+      <n-avatar :size="50" src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png" />
 
       <div class="flex flex-col gap-1">
         <span class="font-semibold dark:text-gray-200">{{ displayName }}</span>
@@ -41,7 +42,7 @@
           <icon-notification class="w-6 h-6 dark:text-gray-0" />
         </div>
       </div>
-      <el-dropdown type="primary" trigger="click">
+      <n-dropdown trigger="click" :options="localeOptions" @select="changeLocale">
         <div class="flex items-center gap-2">
           <img :src="flags[locale]?.flag" :alt="flags[locale]?.code" class="w-5 h-5" />
           <span class="uppercase dark:text-gray-0">{{
@@ -49,19 +50,10 @@
           }}</span>
           <IconCaretDown class="w-4 h-4 dark:text-gray-0" />
         </div>
-        <template #dropdown>
-          <el-dropdown-menu>
-            <el-dropdown-item v-for="(item, key) in flags" :key="key" @click="changeLocale(item.code)">
-              <div class="flex items-center gap-2">
-                <img :src="item.flag" alt="" class="w-5 h-5" />
-                <span>{{ item.name }}</span>
-              </div>
-            </el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
+      </n-dropdown>
 
-      <el-dropdown v-if="user.userInfo" trigger="click" placement="bottom-end" teleported>
+      <n-dropdown v-if="user.userInfo" trigger="click" placement="bottom-end" :options="userOptions"
+        @select="handleUserSelect">
         <div class="flex items-center gap-3 cursor-pointer select-none">
           <div class="w-10 h-10 rounded-full bg-brand-60 text-white flex items-center justify-center font-semibold">
             {{ initials }}
@@ -71,16 +63,9 @@
           </span>
           <IconCaretDown class="w-4 h-4 dark:text-gray-0" />
         </div>
-        <template #dropdown>
-          <el-dropdown-menu class="min-w-40">
-            <el-dropdown-item divided @click="handleLogout">
-              <span class="text-red-600">{{ $t("action.logout") }}</span>
-            </el-dropdown-item>
-          </el-dropdown-menu>
-        </template>
-      </el-dropdown>
+      </n-dropdown>
     </div>
-  </el-header>
+  </n-layout-header>
 </template>
 
 <script setup>
@@ -99,13 +84,28 @@ const isDark = computed({
 const user = useUserStore();
 const router = useRouter();
 
-const { locale, setLocale } = useI18n();
+const { locale, setLocale, t } = useI18n();
 
 const items = useBreadcrumb();
 
 function changeLocale(code) {
   setLocale(code);
 }
+
+const localeOptions = computed(() =>
+  Object.values(flags).map((item) => ({
+    label: item.name,
+    key: item.code,
+  }))
+);
+
+const userOptions = computed(() => [
+  { label: t("action.logout"), key: "logout" },
+]);
+
+const handleUserSelect = (key) => {
+  if (key === "logout") handleLogout();
+};
 
 const props = defineProps({
   collapsed: Boolean,

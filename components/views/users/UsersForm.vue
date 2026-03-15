@@ -1,40 +1,42 @@
 <template>
-  <el-dialog v-model="visible" title="create user" width="500" align-center :close-on-click-modal="true"
-    :destroy-on-close="true" v-loading="loading">
-    <!-- FORM -->
-    <el-form ref="formRef" :model="form" :rules="rules" label-width="0" class="grid gap-3" autocomplete="off"
-      @submit.prevent>
-      <el-form-item prop="username">
-        <el-input v-model.trim="form.username" placeholder="Логин" clearable autocomplete="off" autocapitalize="off"
-          autocorrect="off" spellcheck="false" :name="`no-username-${uid}`" @keyup.enter="onSubmit"
-          :disabled="isEdit" />
-      </el-form-item>
+  <n-modal v-model:show="visible" :mask-closable="true">
+    <n-card title="Create user" style="width: 500px" :bordered="false">
+      <n-spin :show="loading">
+        <n-form ref="formRef" :model="form" :rules="rules" label-width="0" class="grid gap-3" autocomplete="off"
+          @submit.prevent>
+          <n-form-item path="username">
+            <n-input v-model:value.trim="form.username" placeholder="Логин" clearable autocomplete="off"
+              autocapitalize="off" autocorrect="off" spellcheck="false" :name="`no-username-${uid}`"
+              @keyup.enter="onSubmit" :disabled="isEdit" />
+          </n-form-item>
 
-      <el-form-item prop="password">
-        <el-input v-model="form.password" type="password" show-password placeholder="Пароль" autocomplete="new-password"
-          :name="`no-password-${uid}`" @keyup.enter="onSubmit" />
-      </el-form-item>
-    </el-form>
+          <n-form-item path="password">
+            <n-input v-model:value="form.password" type="password" show-password-on="click" placeholder="Пароль"
+              autocomplete="new-password" :name="`no-password-${uid}`" @keyup.enter="onSubmit" />
+          </n-form-item>
+        </n-form>
+      </n-spin>
 
-    <!-- FOOTER -->
-    <template #footer>
-      <div class="dialog-footer">
-        <el-button :disabled="loading" @click="visible = false">Cancel</el-button>
-        <el-button type="primary" :loading="loading" @click="onSubmit">
-          Confirm
-        </el-button>
-      </div>
-    </template>
-  </el-dialog>
+      <template #footer>
+        <div class="dialog-footer">
+          <n-button :disabled="loading" @click="visible = false">Cancel</n-button>
+          <n-button type="primary" :loading="loading" @click="onSubmit">
+            Confirm
+          </n-button>
+        </div>
+      </template>
+    </n-card>
+  </n-modal>
 </template>
 
 <script setup lang="ts">
 import { computed, reactive, ref } from 'vue'
-import type { FormInstance, FormRules } from 'element-plus'
-import { ElMessage } from 'element-plus'
+import type { FormInst, FormRules } from 'naive-ui'
+import { useMessage } from 'naive-ui'
 
-const formRef = ref<FormInstance>()
+const formRef = ref<FormInst | null>(null)
 const loading = ref(false)
+const message = useMessage()
 
 const props = defineProps<{ modelValue: boolean; isEdit: boolean; editData: any }>()
 const emit = defineEmits<{
@@ -65,17 +67,17 @@ const rules: FormRules<typeof form> = {
 
 const onSubmit = async () => {
   if (!formRef.value) return
-  const valid = await formRef.value.validate().catch(() => false)
+  const valid = await formRef.value.validate().then(() => true).catch(() => false)
   if (!valid) return
   try {
     loading.value = true
     const { error } = await useApiService().Users.UsersController_create(form)
     if (error.value) throw error.value
     emit('getData')
-    ElMessage.success('Пользователь создан')
+    message.success('Пользователь создан')
     visible.value = false
   } catch (e: any) {
-    ElMessage.error(e?.message || 'Ошибка')
+    message.error(e?.message || 'Ошибка')
   } finally {
     loading.value = false
   }
