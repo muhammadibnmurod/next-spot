@@ -53,6 +53,7 @@ export default defineNuxtConfig({
       { code: "kril", file: "uz_cyr/cr-CR.json", language: "kril" },
       { code: "ru", file: "ru/ru-RU.json", language: "ru" },
       { code: "en", file: "en/en-EN.json", language: "en" },
+      { code: "ko", file: "ko/ko-KR.json", language: "ko" }
     ],
     defaultLocale: "uz",
   },

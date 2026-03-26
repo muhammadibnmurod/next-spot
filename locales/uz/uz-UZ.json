@@ -1,8 +1,114 @@
 {
   "test": "test uz",
+  "main": {
+    "heading1": "NEXT SPOT",
+    "heading2": "BOZORNI EGALLANG",
+    "badge": "O'zbekiston bozoriga kirish uchun ishonchli hamkor",
+    "description": "O'zbekiston — \"Next ASEAN\" sifatida tan olingan, Osiyoning yangi rivojlanayotgan bozori. Yosh aholi, strategik joylashuv va iqtisodiy islohotlar yangi imkoniyatlar yaratmoqda.",
+    "enter_market": "Bozorga kirish",
+    "learn_more": "Batafsil ma'lumot"
+  },
   "navigation": {
     "home": "Bosh sahifa",
     "users": "Foydalanuvchilar",
-    "objects": "Obyektlar"
+    "objects": "Obyektlar",
+    "services": "Xizmatlar",
+    "about": "Biz haqimizda",
+    "why_uzbekistan": "Nega O'zbekiston",
+    "contact": "Aloqa",
+    "start": "Boshlash"
+  },
+  "advantages": {
+    "heading1": "BIZNING",
+    "heading2": "USTUNLIKLARIMIZ",
+    "item1_title": "Yapon biznesini tushunish",
+    "item1_desc": "Jamoamiz Yaponiyada ishlagan va yapon kompaniyalari talablarini yaxshi biladi.",
+    "item2_title": "Mutaxassislar jamoasi",
+    "item2_desc": "Strategiya, buxgalteriya, huquq va IT sohalaridagi mutaxassislar birlashgan.",
+    "item3_title": "Bozorga kirishni osonlashtirish",
+    "item3_desc": "Biz kirish jarayonini soddalashtiramiz va sizga asosiy biznesga e'tibor qaratishga yordam beramiz.",
+    "item4_title": "Ko'p tillilik",
+    "item4_desc": "Yapon, ingliz va mahalliy tillarda ishlaymiz."
+  },
+  "lead": {
+    "title": "YANGI UFQLARNI YETAKLANG",
+    "description": "O'zbekistonga kirishda qiyinchiliklar mavjud: qonunchilik, hamkor topish, davlat organlari bilan ishlash, risklarni boshqarish. NEXT SPOT nafaqat kirish, balki biznesni rivojlantirishda ham yordam beradi.",
+    "item1": "Qonunchilik masalalari va muvofiqlashtirish",
+    "item2": "Ishonchli mahalliy hamkorlarni topish",
+    "item3": "Davlat organlari bilan ishlash",
+    "item4": "Risklarni boshqarish va strategik rejalashtirish"
+  },
+  "start": {
+    "heading": "OSON START",
+    "subtitle": "Oddiy 4 bosqichda biznesingizni O'zbekistonda boshlang",
+    "step1_title": "Onlayn uchrashuv",
+    "step1_desc": "Biznesingiz haqida gaplashib, imkoniyatlarni muhokama qilamiz",
+    "step2_title": "Yo'nalishni belgilash",
+    "step2_desc": "Aniq strategiya va yo'l xaritasini ishlab chiqamiz",
+    "step3_title": "Rejalashtirish",
+    "step3_desc": "Batafsil reja va resurslarni tayyorlaymiz",
+    "step4_title": "Biznesni boshlash",
+    "step4_desc": "O'zbekiston bozorida faoliyatni boshlaymiz"
+  },
+  "services": {
+    "heading1": "BIZNING",
+    "heading2": "XIZMATLARIMIZ",
+    "item1_title": "Bozorga kirish strategiyasi",
+    "item1_desc": "Biznes modelingizga mos strategiya ishlab chiqamiz va amaliy reja taklif qilamiz",
+    "item2_title": "Hamkor topish",
+    "item2_desc": "Ishonchli mahalliy hamkorlarni topish, muzokaralar va hamkorlikni yo'lga qo'yish",
+    "item3_title": "Buxgalteriya xizmatlari",
+    "item3_desc": "Mahalliy qonunchilik asosida buxgalteriya va soliq hisobini yuritish",
+    "item4_title": "Huquqiy xizmatlar",
+    "item4_desc": "Kompaniya ro'yxatdan o'tkazish, shartnomalar va huquqiy maslahatlar",
+    "item5_title": "Tarjima xizmatlari",
+    "item5_desc": "Og'zaki tarjima, hujjatlar tarjimasi va notarial tasdiqlash",
+    "item6_title": "Raqamli va IT yechimlar",
+    "item6_desc": "Veb-sayt yaratish, Telegram kanallar, Instagram sahifalarini yuritish"
+  },
+  "why_uzbekistan": {
+    "title1": "NIMA UCHUN",
+    "title2": "O'ZBEKISTON?",
+    "description": "O'zbekiston Markaziy Osiyoda eng tez rivojlanayotgan bozorlardan biri bo'lib, xalqaro investorlar e'tiborini jalb qilmoqda.",
+    "feat1_title": "O'sib borayotgan bozor",
+    "feat1_item1": "38 mln+ aholi",
+    "feat1_item2": "Yosh va faol ishchi kuchi",
+    "feat1_item3": "Barqaror iqtisodiy o'sish",
+    "feat2_title": "Strategik joylashuv",
+    "feat2_item1": "Xitoy, Rossiya, Yevropa, Yaqin Sharqni bog'laydi",
+    "feat2_item2": "Muhim logistika markazi",
+    "feat3_title": "Davlat qo'llab-quvvatlashi",
+    "feat3_item1": "Iqtisodiy islohotlar",
+    "feat3_item2": "Soliq imtiyozlari",
+    "feat3_item3": "Xorijiy biznesni qo'llab-quvvatlash"
+  },
+  "believe": {
+    "title": "ISHONCH — ASOS",
+    "subtitle": "Biz uzoq muddatli hamkorlikni ishonch asosida quramiz. NEXT SPOT oddiy xizmat ko'rsatuvchi emas, balki uzoq muddatli hamkor hisoblanadi.",
+    "item1": "Ishonchli munosabatlar",
+    "item2": "Amaliy yordam",
+    "item3": "Halollik va ochiqlik"
+  },
+  "uzbekistan_cta": {
+    "title": "O'zbekistonda biznesingizni boshlang",
+    "subtitle": "NEXT SPOT bilan O'zbekiston bozoriga ishonch bilan kiring. Biz sizning muvaffaqiyatli kirish va rivojlanishingiz uchun barcha yordam ko'rsatamiz.",
+    "btn_meeting": "Onlayn uchrashuv",
+    "btn_info": "Batafsil ma'lumot"
+  },
+  "footer": {
+    "tagline": "Yaponiya va O'zbekiston o'rtasida ishonchli biznes ko'prik",
+    "services_title": "Xizmatlar",
+    "company_title": "Kompaniya",
+    "contact_title": "Aloqa",
+    "service1": "Bozorga kirish",
+    "service2": "Konsalting",
+    "service3": "Huquqiy yordam",
+    "service4": "IT yechimlar",
+    "company1": "Biz haqimizda",
+    "company2": "Missiya",
+    "company3": "Jamoa",
+    "company4": "Aloqa",
+    "contact1": "Toshkent, O'zbekiston",
+    "copyright": "© 2026 NEXT SPOT. Barcha huquqlar himoyalangan."
   }
 }

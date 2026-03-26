@@ -3,10 +3,10 @@
     class="fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300"
     :class="{ 'shadow-md': isScrolled }"
   >
-    <div class="mx-auto px-6 h-[68px] grid grid-cols-3 items-center">
+    <div class="mx-auto px-6 h-[80px] grid grid-cols-3 items-center">
       <!-- Logo -->
       <NuxtLink to="/" class="flex items-center no-underline">
-        <div class="h-10 flex items-center justify-center">
+        <div class="w-30 h-20 flex items-center justify-center">
           <img :src="Logo" alt="Logo" class="h-full w-auto object-contain" />
         </div>
       </NuxtLink>
@@ -20,20 +20,57 @@
           class="relative px-4 py-2 text-sm font-medium text-gray-700 rounded-lg transition-all duration-200 hover:text-blue-600 hover:bg-blue-50 group whitespace-nowrap"
           active-class="text-blue-600"
         >
-          {{ link.label }}
+          {{ $t(link.labelKey) }}
           <span
             class="absolute bottom-1 left-4 right-4 h-[2px] bg-blue-600 rounded-full scale-x-0 transition-transform duration-250 group-hover:scale-x-100"
           />
         </NuxtLink>
       </nav>
 
-      <div class="flex justify-end">
+      <div class="flex justify-end items-center gap-2">
+        <!-- Language Switcher (desktop) -->
+        <div class="hidden md:flex items-center relative" ref="langDropdownRef">
+          <button
+            class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-200 text-sm font-medium text-gray-700 hover:border-blue-400 hover:text-blue-600 transition-colors duration-200"
+            @click="langOpen = !langOpen"
+          >
+            <span>{{ currentLocaleLabel }}</span>
+            <svg
+              class="w-3 h-3 transition-transform duration-200"
+              :class="{ 'rotate-180': langOpen }"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+
+          <Transition name="fade-drop">
+            <div
+              v-if="langOpen"
+              class="absolute top-full right-0 mt-1 bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden min-w-[110px] z-50"
+            >
+              <button
+                v-for="loc in localeOptions"
+                :key="loc.code"
+                class="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
+                :class="{ 'bg-blue-50 text-blue-600 font-semibold': locale === loc.code }"
+                @click="switchLang(loc.code)"
+              >
+                <span>{{ loc.flag }}</span>
+                <span>{{ loc.label }}</span>
+              </button>
+            </div>
+          </Transition>
+        </div>
+
         <!-- CTA Button (desktop) -->
         <button
           class="hidden md:flex bg-[#1a3fbb] rounded-full px-5 py-2 text-white text-sm font-semibold hover:bg-[#0a2c91] transition-colors duration-200"
           @click="handleStart"
         >
-          Boshlash
+          {{ $t('navigation.start') }}
         </button>
 
         <!-- Hamburger (mobile) -->
@@ -67,8 +104,24 @@
           active-class="bg-blue-50 text-blue-600"
           @click="mobileOpen = false"
         >
-          {{ link.label }}
+          {{ $t(link.labelKey) }}
         </NuxtLink>
+
+        <!-- Mobile Language Switcher -->
+        <div class="flex gap-2 mt-2 px-1">
+          <button
+            v-for="loc in localeOptions"
+            :key="loc.code"
+            class="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg border text-xs font-medium transition-colors duration-150"
+            :class="locale === loc.code
+              ? 'border-blue-500 bg-blue-50 text-blue-600'
+              : 'border-gray-200 text-gray-600 hover:border-blue-300 hover:text-blue-500'"
+            @click="switchLang(loc.code)"
+          >
+            <span>{{ loc.flag }}</span>
+            <span>{{ loc.label }}</span>
+          </button>
+        </div>
 
         <n-button
           type="primary"
@@ -82,7 +135,7 @@
           }"
           @click="handleStart"
         >
-          Boshlash
+          {{ $t('navigation.start') }}
         </n-button>
       </div>
     </Transition>
@@ -90,37 +143,68 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 import { NuxtLink } from "#components";
 import { NButton, NIcon } from "naive-ui";
-import { LocationOutline, MenuOutline, CloseOutline } from "@vicons/ionicons5";
+import { MenuOutline, CloseOutline } from "@vicons/ionicons5";
 import Logo from "@/assets/images/Logo.png";
+
+const { locale, setLocale } = useI18n();
 
 const isScrolled = ref(false);
 const mobileOpen = ref(false);
+const langOpen = ref(false);
+const langDropdownRef = ref<HTMLElement | null>(null);
 
 const navLinks = [
-  { label: "Xizmatlar", to: "/xizmatlar" },
-  { label: "Biz haqimizda", to: "/biz-haqimizda" },
-  { label: "Nega O'zbekiston", to: "/nega-ozbekiston" },
-  { label: "Aloqa", to: "/aloqa" },
+  { labelKey: "navigation.services", to: "/#services" },
+  { labelKey: "navigation.about", to: "/#about" },
+  { labelKey: "navigation.why_uzbekistan", to: "/#why-uzbekistan" },
+  { labelKey: "navigation.contact", to: "/#contact" },
 ];
+
+const localeOptions = [
+  { code: "uz", label: "UZ", flag: "🇺🇿" },
+  { code: "kril", label: "КР", flag: "🇺🇿" },
+  { code: "en", label: "EN", flag: "🇬🇧" },
+  { code: "ru", label: "RU", flag: "🇷🇺" },
+  { code: "ko", label: "KO", flag: "🇰🇷" },
+];
+
+const currentLocaleLabel = computed(() => {
+  return localeOptions.find((l) => l.code === locale.value)?.label ?? "UZ";
+});
+
+async function switchLang(code: string) {
+  await setLocale(code as any);
+  langOpen.value = false;
+}
 
 function handleStart() {
   mobileOpen.value = false;
-  // navigateTo('/boshlash') // yoki modal ochish
 }
 
 function onScroll() {
   isScrolled.value = window.scrollY > 10;
 }
 
-onMounted(() => window.addEventListener("scroll", onScroll));
-onUnmounted(() => window.removeEventListener("scroll", onScroll));
+function onClickOutside(e: MouseEvent) {
+  if (langDropdownRef.value && !langDropdownRef.value.contains(e.target as Node)) {
+    langOpen.value = false;
+  }
+}
+
+onMounted(() => {
+  window.addEventListener("scroll", onScroll);
+  document.addEventListener("mousedown", onClickOutside);
+});
+onUnmounted(() => {
+  window.removeEventListener("scroll", onScroll);
+  document.removeEventListener("mousedown", onClickOutside);
+});
 </script>
 
 <style scoped>
-/* Slide-down animation for mobile menu */
 .slide-down-enter-active,
 .slide-down-leave-active {
   transition:
@@ -131,5 +215,17 @@ onUnmounted(() => window.removeEventListener("scroll", onScroll));
 .slide-down-leave-to {
   opacity: 0;
   transform: translateY(-8px);
+}
+
+.fade-drop-enter-active,
+.fade-drop-leave-active {
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+.fade-drop-enter-from,
+.fade-drop-leave-to {
+  opacity: 0;
+  transform: translateY(-4px);
 }
 </style>

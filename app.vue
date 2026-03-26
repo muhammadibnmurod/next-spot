@@ -11,3 +11,9 @@
     </n-message-provider>
   </n-config-provider>
 </template>
+
+<style>
+.section-anchor {
+  scroll-margin-top: 90px;
+}
+</style>

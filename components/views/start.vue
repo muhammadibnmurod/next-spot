@@ -7,10 +7,10 @@
     <div class="max-w-5xl mx-auto">
       <div class="text-center mb-14">
         <h2 class="text-[48px] font-extrabold text-[#1447E6] uppercase mb-3">
-          OSON START
+          {{ $t('start.heading') }}
         </h2>
         <p class="text-gray-500 text-base">
-          Oddiy 4 bosqichda biznesingizni O'zbekistonda boshlang
+          {{ $t('start.subtitle') }}
         </p>
       </div>
 
@@ -29,11 +29,11 @@
           </div>
 
           <h3 class="text-[20px] font-bold text-gray-900 leading-snug">
-            {{ step.title }}
+            {{ $t(step.titleKey) }}
           </h3>
 
           <p class="text-[16px] text-gray-500 leading-relaxed max-w-[180px]">
-            {{ step.description }}
+            {{ $t(step.descKey) }}
           </p>
         </div>
       </div>
@@ -51,30 +51,9 @@ function toggleStep(id: number) {
 }
 
 const steps = [
-  {
-    id: 1,
-    number: "01",
-    title: "Onlayn uchrashuv",
-    description:
-      "Biznesingiz haqida gaplashib, imkoniyatlarni muhokama qilamiz",
-  },
-  {
-    id: 2,
-    number: "02",
-    title: "Yo'nalishni belgilash",
-    description: "Aniq strategiya va yo'l xaritasini ishlab chiqamiz",
-  },
-  {
-    id: 3,
-    number: "03",
-    title: "Rejalashtirish",
-    description: "Batafsil reja va resurslarni tayyorlaymiz",
-  },
-  {
-    id: 4,
-    number: "04",
-    title: "Biznesni boshlash",
-    description: "O'zbekiston bozorida faoliyatni boshlaymiz",
-  },
+  { id: 1, number: "01", titleKey: "start.step1_title", descKey: "start.step1_desc" },
+  { id: 2, number: "02", titleKey: "start.step2_title", descKey: "start.step2_desc" },
+  { id: 3, number: "03", titleKey: "start.step3_title", descKey: "start.step3_desc" },
+  { id: 4, number: "04", titleKey: "start.step4_title", descKey: "start.step4_desc" },
 ];
 </script>

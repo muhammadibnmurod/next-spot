@@ -1,17 +1,17 @@
 <template>
-  <section class="bg-white py-20 px-6">
+  <section id="services" class="section-anchor bg-white py-20 px-6">
     <div class="max-w-7xl mx-auto">
       <!-- Title -->
       <h2 class="text-center text-4xl md:text-5xl font-black mb-12">
-        <span class="text-[#101828] text-[38px]">BIZNING </span>
-        <span class="text-[#1447E6] text-[38px]">XIZMATLARIMIZ</span>
+        <span class="text-[#101828] text-[38px]">{{ $t('services.heading1') }} </span>
+        <span class="text-[#1447E6] text-[38px]">{{ $t('services.heading2') }}</span>
       </h2>
 
       <!-- Cards -->
       <div class="grid grid-cols-3 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div
           v-for="item in service"
-          :key="item.title"
+          :key="item.titleKey"
           class="group border border-gray-200 rounded-2xl p-6 flex flex-col gap-2 hover:border-[#1447E6] hover:shadow-md transition-all duration-200"
         >
           <!-- Icon box -->
@@ -24,10 +24,10 @@
           <!-- Text -->
           <div class="gap-10">
             <h3 class="text-[#0d1b3e] font-bold pb-6 text-[24px] leading-snug">
-              {{ item.title }}
+              {{ $t(item.titleKey) }}
             </h3>
             <p class="text-gray-500 text-[16px] leading-relaxed">
-              {{ item.description }}
+              {{ $t(item.descKey) }}
             </p>
           </div>
         </div>
@@ -47,40 +47,11 @@ import {
 } from "@/assets/images/our-service";
 
 const service = [
-  {
-    img: imageService1,
-    title: "Bozorga kirish strategiyasi",
-    description:
-      "Biznes modelingizga mos strategiya ishlab chiqamiz va amaliy reja taklif qilamiz",
-  },
-  {
-    img: imageService2,
-    title: "Hamkor topish",
-    description:
-      "Ishonchli mahalliy hamkorlarni topish, muzokaralar va hamkorlikni yo'lga qo'yish",
-  },
-  {
-    img: imageService3,
-    title: "Buxgalteriya xizmatlari",
-    description:
-      "Mahalliy qonunchilik asosida buxgalteriya va soliq hisobini yuritish",
-  },
-  {
-    img: imageService4,
-    title: "Huquqiy xizmatlar",
-    description:
-      "Kompaniya ro'yxatdan o'tkazish, shartnomalar va huquqiy maslahatlar",
-  },
-  {
-    img: imageService5,
-    title: "Tarjima xizmatlari",
-    description: "Og'zaki tarjima, hujjatlar tarjimasi va notarial tasdiqlash",
-  },
-  {
-    img: imageService6,
-    title: "Raqamli va IT yechimlar",
-    description:
-      "Veb-sayt yaratish, Telegram kanallar, Instagram sahifalarini yuritish",
-  },
+  { img: imageService1, titleKey: "services.item1_title", descKey: "services.item1_desc" },
+  { img: imageService2, titleKey: "services.item2_title", descKey: "services.item2_desc" },
+  { img: imageService3, titleKey: "services.item3_title", descKey: "services.item3_desc" },
+  { img: imageService4, titleKey: "services.item4_title", descKey: "services.item4_desc" },
+  { img: imageService5, titleKey: "services.item5_title", descKey: "services.item5_desc" },
+  { img: imageService6, titleKey: "services.item6_title", descKey: "services.item6_desc" },
 ];
 </script>

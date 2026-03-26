@@ -42,7 +42,7 @@
           class="inline-flex items-center gap-2 w-fit bg-white/80 border border-blue-200 rounded-full px-4 py-2 text-sm text-blue-700 font-medium shadow-sm"
         >
           <span>🇺🇿</span>
-          <span>O'zbekiston bozoriga kirish uchun ishonchli hamkor</span>
+          <span>{{ $t('main.badge') }}</span>
         </div>
 
         <!-- Heading -->
@@ -50,12 +50,12 @@
           <h1
             class="text-4xl md:text-5xl font-black text-[#0d1b3e] leading-tight tracking-tight"
           >
-            NEXT SPOT
+            {{ $t('main.heading1') }}
           </h1>
           <h1
             class="text-4xl md:text-5xl font-black text-[#1a3fbb] leading-tight tracking-tight"
           >
-            LEAD THE FRONTIER
+            {{ $t('main.heading2') }}
           </h1>
         </div>
 
@@ -63,9 +63,7 @@
         <p
           class="text-[#364153] text-base text-[20px] leading-relaxed max-w-md"
         >
-          O'zbekiston — "Next ASEAN" sifatida tan olingan, Osiyoning yangi
-          rivojlanayotgan bozori. Yosh aholi, strategik joylashuv va iqtisodiy
-          islohotlar yangi imkoniyatlar yaratmoqda.
+          {{ $t('main.description') }}
         </p>
 
         <!-- Buttons -->
@@ -73,12 +71,12 @@
           <button
             class="bg-[#1a3fbb] hover:bg-[#0a2c91] text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200"
           >
-            Bozorga kirish
+            {{ $t('main.enter_market') }}
           </button>
           <button
             class="border-2 border-[#1a3fbb] text-[#1a3fbb] hover:bg-blue-50 font-semibold px-6 py-3 rounded-lg transition-colors duration-200 bg-transparent"
           >
-            Batafsil ma'lumot
+            {{ $t('main.learn_more') }}
           </button>
         </div>
       </div>

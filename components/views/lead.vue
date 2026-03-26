@@ -2,27 +2,19 @@
 import image from "@/assets/images/lead-image.jpg";
 import RoundedIcon from "@/assets/icons/rounded.svg";
 
-const items = [
-  "Qonunchilik masalalari va muvofiqlashtirish",
-  "Ishonchli mahalliy hamkorlarni topish",
-  "Davlat organlari bilan ishlash",
-  "Risklarni boshqarish va strategik rejalashtirish",
-];
+const itemKeys = ['lead.item1', 'lead.item2', 'lead.item3', 'lead.item4'];
 </script>
 
 <template>
   <section class="lead-section">
     <div class="lead-content">
       <div class="lead-text">
-        <h2 class="lead-title">LEAD THE FRONTIER</h2>
+        <h2 class="lead-title">{{ $t('lead.title') }}</h2>
         <p class="lead-description">
-          O'zbekistonga kirishda qiyinchiliklar mavjud: qonunchilik, hamkor
-          topish, davlat organlari bilan ishlash, risklarni boshqarish. NEXT
-          SPOT nafaqat kirish, balki biznesni rivojlantirishda ham yordam
-          beradi.
+          {{ $t('lead.description') }}
         </p>
         <ul class="lead-list">
-          <li v-for="item in items" :key="item" class="lead-list-item">
+          <li v-for="key in itemKeys" :key="key" class="lead-list-item">
             <span class="lead-check">
               <svg
                 width="20"
@@ -41,7 +33,7 @@ const items = [
                 />
               </svg>
             </span>
-            <span>{{ item }}</span>
+            <span>{{ $t(key) }}</span>
           </li>
         </ul>
       </div>

@@ -1,0 +1,21 @@
+{
+  "test": "test uz",
+  "main": {
+    "heading1": "NEXT SPOT",
+    "heading2": "BOZORNI EGALLANG",
+    "badge": "O'zbekiston bozoriga kirish uchun ishonchli hamkor",
+    "description": "O'zbekiston — \"Next ASEAN\" sifatida tan olingan, Osiyoning yangi rivojlanayotgan bozori. Yosh aholi, strategik joylashuv va iqtisodiy islohotlar yangi imkoniyatlar yaratmoqda.",
+    "enter_market": "Bozorga kirish",
+    "learn_more": "Batafsil ma'lumot"
+  },
+  "navigation": {
+    "home": "Bosh sahifa",
+    "users": "Foydalanuvchilar",
+    "objects": "Obyektlar",
+    "services": "Xizmatlar",
+    "about": "Biz haqimizda",
+    "why_uzbekistan": "Nega O'zbekiston",
+    "contact": "Aloqa",
+    "start": "Boshlash"
+  }
+}
