@@ -1,18 +1,18 @@
 <template>
-  <footer id="contact" class="section-anchor bg-[#0d1b3e] px-6 pt-16 pb-8">
+  <footer id="contact" class="section-anchor bg-[#0d1b3e] px-4 sm:px-6 pt-10 sm:pt-12 md:pt-16 pb-6 sm:pb-8">
     <div class="max-w-7xl mx-auto">
       <!-- Top grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 mb-8 sm:mb-10 md:mb-12">
         <!-- Logo + tagline -->
-        <div class="flex flex-col gap-4">
-          <div class="w-24">
+        <div class="col-span-2 sm:col-span-1 flex flex-col gap-3 sm:gap-4">
+          <div class="w-20 sm:w-24">
             <img
               :src="Logo"
               alt="NEXT SPOT"
               class="w-full h-auto object-contain rounded-xl"
             />
           </div>
-          <p class="text-white/60 text-sm leading-relaxed">
+          <p class="text-white/60 text-xs sm:text-sm leading-relaxed">
             {{ $t("footer.tagline") }}
           </p>
         </div>

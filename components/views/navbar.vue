@@ -3,32 +3,32 @@
     class="fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300"
     :class="{ 'shadow-md': isScrolled }"
   >
-    <div class="mx-auto px-6 h-[80px] grid grid-cols-3 items-center">
+    <div class="mx-auto px-4 sm:px-6 h-[64px] sm:h-[72px] md:h-[80px] flex items-center justify-between">
       <!-- Logo -->
-      <NuxtLink to="/" class="flex items-center no-underline">
-        <div class="w-30 h-20 flex items-center justify-center">
+      <NuxtLink to="/" class="flex items-center no-underline flex-shrink-0">
+        <div class="h-12 sm:h-14 md:h-16 flex items-center justify-center">
           <img :src="Logo" alt="Logo" class="h-full w-auto object-contain" />
         </div>
       </NuxtLink>
 
       <!-- Desktop Nav Links (centered) -->
-      <nav class="hidden md:flex items-center justify-center gap-1">
+      <nav class="hidden lg:flex items-center justify-center gap-1 flex-1 px-4">
         <NuxtLink
           v-for="link in navLinks"
           :key="link.to"
           :to="link.to"
-          class="relative px-4 py-2 text-sm font-medium text-gray-700 rounded-lg transition-all duration-200 hover:text-blue-600 hover:bg-blue-50 group whitespace-nowrap"
+          class="relative px-3 py-2 text-sm font-medium text-gray-700 rounded-lg transition-all duration-200 hover:text-blue-600 hover:bg-blue-50 group whitespace-nowrap"
           active-class="text-blue-600"
         >
           {{ $t(link.labelKey) }}
           <span
-            class="absolute bottom-1 left-4 right-4 h-[2px] bg-blue-600 rounded-full scale-x-0 transition-transform duration-250 group-hover:scale-x-100"
+            class="absolute bottom-1 left-3 right-3 h-[2px] bg-blue-600 rounded-full scale-x-0 transition-transform duration-250 group-hover:scale-x-100"
           />
         </NuxtLink>
       </nav>
 
-      <div class="flex justify-end items-center gap-2">
-        <!-- Language Switcher (desktop) -->
+      <div class="flex items-center gap-2">
+        <!-- Language Switcher (tablet + desktop) -->
         <div class="hidden md:flex items-center relative" ref="langDropdownRef">
           <button
             class="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-gray-200 text-sm font-medium text-gray-700 hover:border-blue-400 hover:text-blue-600 transition-colors duration-200"
@@ -65,19 +65,19 @@
           </Transition>
         </div>
 
-        <!-- CTA Button (desktop) -->
+        <!-- CTA Button (tablet + desktop) -->
         <button
-          class="hidden md:flex bg-[#1a3fbb] rounded-full px-5 py-2 text-white text-sm font-semibold hover:bg-[#0a2c91] transition-colors duration-200"
+          class="hidden md:flex bg-[#1a3fbb] rounded-full px-4 lg:px-5 py-2 text-white text-sm font-semibold hover:bg-[#0a2c91] transition-colors duration-200 whitespace-nowrap"
           @click="handleStart"
         >
           {{ $t('navigation.start') }}
         </button>
 
-        <!-- Hamburger (mobile) -->
+        <!-- Hamburger (mobile + tablet nav hidden on lg) -->
         <n-button
           quaternary
           circle
-          class="md:hidden"
+          class="lg:hidden"
           @click="mobileOpen = !mobileOpen"
         >
           <template #icon>
@@ -90,29 +90,32 @@
       </div>
     </div>
 
-    <!-- Mobile Drawer -->
+    <!-- Mobile / Tablet Drawer -->
     <Transition name="slide-down">
       <div
         v-if="mobileOpen"
-        class="md:hidden border-t border-gray-100 bg-white px-5 pb-5 pt-3 flex flex-col gap-1"
+        class="lg:hidden border-t border-gray-100 bg-white px-4 sm:px-6 pb-5 pt-3 flex flex-col gap-1"
       >
-        <NuxtLink
-          v-for="link in navLinks"
-          :key="link.to"
-          :to="link.to"
-          class="px-4 py-3 rounded-lg text-sm font-medium text-gray-700 transition-all duration-200 hover:bg-blue-50 hover:text-blue-600 no-underline"
-          active-class="bg-blue-50 text-blue-600"
-          @click="mobileOpen = false"
-        >
-          {{ $t(link.labelKey) }}
-        </NuxtLink>
+        <!-- Nav links: 2 columns on tablet, 1 column on mobile -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-1">
+          <NuxtLink
+            v-for="link in navLinks"
+            :key="link.to"
+            :to="link.to"
+            class="px-4 py-3 rounded-lg text-sm font-medium text-gray-700 transition-all duration-200 hover:bg-blue-50 hover:text-blue-600 no-underline"
+            active-class="bg-blue-50 text-blue-600"
+            @click="mobileOpen = false"
+          >
+            {{ $t(link.labelKey) }}
+          </NuxtLink>
+        </div>
 
-        <!-- Mobile Language Switcher -->
-        <div class="flex gap-2 mt-2 px-1">
+        <!-- Mobile Language Switcher (hidden on tablet — already has dropdown) -->
+        <div class="flex gap-2 mt-3 px-1 md:hidden">
           <button
             v-for="loc in localeOptions"
             :key="loc.code"
-            class="flex-1 flex items-center justify-center gap-1.5 py-2 rounded-lg border text-xs font-medium transition-colors duration-150"
+            class="flex-1 flex items-center justify-center gap-1 py-2 rounded-lg border text-xs font-medium transition-colors duration-150"
             :class="locale === loc.code
               ? 'border-blue-500 bg-blue-50 text-blue-600'
               : 'border-gray-200 text-gray-600 hover:border-blue-300 hover:text-blue-500'"
@@ -123,11 +126,12 @@
           </button>
         </div>
 
+        <!-- CTA — mobile only (tablet already has header button) -->
         <n-button
           type="primary"
           block
           size="medium"
-          class="mt-2"
+          class="mt-3 md:hidden"
           :style="{
             borderRadius: '10px',
             fontWeight: '600',
