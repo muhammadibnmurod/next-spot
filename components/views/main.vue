@@ -22,14 +22,14 @@
     <div
       class="absolute top-[500px] -translate-y-1/2 w-[300px] h-[520px] pointer-events-none select-none"
     >
-      <img src="../../assets/icons/Vector.svg" alt="" class="w-full h-full " />
+      <VectorIcon class="w-full h-full" />
     </div>
 
     <!-- Rounded.svg — top right decoration -->
     <div
       class="absolute top-20 right-12 w-52 h-52 pointer-events-none select-none"
     >
-      <img src="../../assets/icons/rounded.svg" alt="" class="w-full h-full" />
+      <RoundedIcon class="w-full h-full" />
     </div>
 
     <div
@@ -97,7 +97,7 @@
           <div
             class="absolute -bottom-6 -left-6 w-16 h-16 pointer-events-none select-none"
           >
-            <img src="../../assets/icons/rounded.svg" class="w-full h-full" />
+            <RoundedIcon class="w-full h-full" />
           </div>
         </div>
       </div>
