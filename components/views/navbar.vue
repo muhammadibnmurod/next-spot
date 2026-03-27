@@ -172,7 +172,7 @@ const localeOptions = [
   { code: "kril", label: "КР", flag: "🇺🇿" },
   { code: "en", label: "EN", flag: "🇬🇧" },
   { code: "ru", label: "RU", flag: "🇷🇺" },
-  { code: "ko", label: "KO", flag: "🇰🇷" },
+  { code: "ko", label: "JP", flag: "🇯🇵" },
 ];
 
 const currentLocaleLabel = computed(() => {
