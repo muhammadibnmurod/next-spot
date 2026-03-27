@@ -86,11 +86,7 @@
         <div class="relative w-full max-w-[420px] sm:max-w-[500px] md:max-w-[580px]">
           <!-- Main image -->
           <div class="rounded-2xl md:rounded-3xl overflow-hidden shadow-xl md:shadow-2xl">
-            <img
-              :src="BgImage"
-              alt="Background"
-              class="w-full h-full object-cover"
-            />
+            <BgImage class="w-full h-full" />
           </div>
 
           <!-- Rounded.svg — bottom left of image -->
@@ -106,7 +102,7 @@
 </template>
 
 <script setup lang="ts">
-import BgImage from "@/assets/images/background.png";
+import BgImage from '@/assets/images/why-uzbekistan.svg'
 import RoundedIcon from "@/assets/icons/rounded.svg";
 import VectorIcon from "@/assets/icons/Vector.svg";
 </script>

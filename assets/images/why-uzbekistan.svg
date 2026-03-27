@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#061630"/>
+      <stop offset="50%" stop-color="#0d2550"/>
+      <stop offset="100%" stop-color="#1a3a7a"/>
+    </linearGradient>
+    <linearGradient id="mapFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a4faa"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#2563EB" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#2563EB" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="cityDot" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#60a5fa" stop-opacity="0.8"/>
+      <stop offset="100%" stop-color="#60a5fa" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#2563EB" flood-opacity="0.4"/>
+    </filter>
+    <filter id="glow2">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+ 
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bg)"/>
+ 
+  <!-- Subtle grid lines -->
+  <g stroke="#1a3a70" stroke-width="0.5" opacity="0.4">
+    <line x1="0" y1="100" x2="800" y2="100"/>
+    <line x1="0" y1="200" x2="800" y2="200"/>
+    <line x1="0" y1="300" x2="800" y2="300"/>
+    <line x1="0" y1="400" x2="800" y2="400"/>
+    <line x1="0" y1="500" x2="800" y2="500"/>
+    <line x1="100" y1="0" x2="100" y2="600"/>
+    <line x1="200" y1="0" x2="200" y2="600"/>
+    <line x1="300" y1="0" x2="300" y2="600"/>
+    <line x1="400" y1="0" x2="400" y2="600"/>
+    <line x1="500" y1="0" x2="500" y2="600"/>
+    <line x1="600" y1="0" x2="600" y2="600"/>
+    <line x1="700" y1="0" x2="700" y2="600"/>
+  </g>
+ 
+  <!-- Decorative corner patterns (Central Asian geometric) -->
+  <!-- Top-left corner ornament -->
+  <g transform="translate(30, 30)" opacity="0.35" stroke="#60a5fa" fill="none" stroke-width="1.5">
+    <polygon points="0,0 40,0 40,40 0,40"/>
+    <polygon points="5,5 35,5 35,35 5,35"/>
+    <line x1="0" y1="20" x2="40" y2="20"/>
+    <line x1="20" y1="0" x2="20" y2="40"/>
+    <polygon points="20,0 40,20 20,40 0,20" fill="#1a3a7a" stroke="#60a5fa"/>
+  </g>
+  <!-- Top-right corner -->
+  <g transform="translate(730, 30)" opacity="0.35" stroke="#60a5fa" fill="none" stroke-width="1.5">
+    <polygon points="0,0 40,0 40,40 0,40"/>
+    <polygon points="5,5 35,5 35,35 5,35"/>
+    <line x1="0" y1="20" x2="40" y2="20"/>
+    <line x1="20" y1="0" x2="20" y2="40"/>
+    <polygon points="20,0 40,20 20,40 0,20" fill="#1a3a7a" stroke="#60a5fa"/>
+  </g>
+  <!-- Bottom-left -->
+  <g transform="translate(30, 530)" opacity="0.35" stroke="#60a5fa" fill="none" stroke-width="1.5">
+    <polygon points="0,0 40,0 40,40 0,40"/>
+    <polygon points="5,5 35,5 35,35 5,35"/>
+    <line x1="0" y1="20" x2="40" y2="20"/>
+    <line x1="20" y1="0" x2="20" y2="40"/>
+    <polygon points="20,0 40,20 20,40 0,20" fill="#1a3a7a" stroke="#60a5fa"/>
+  </g>
+  <!-- Bottom-right -->
+  <g transform="translate(730, 530)" opacity="0.35" stroke="#60a5fa" fill="none" stroke-width="1.5">
+    <polygon points="0,0 40,0 40,40 0,40"/>
+    <polygon points="5,5 35,5 35,35 5,35"/>
+    <line x1="0" y1="20" x2="40" y2="20"/>
+    <line x1="20" y1="0" x2="20" y2="40"/>
+    <polygon points="20,0 40,20 20,40 0,20" fill="#1a3a7a" stroke="#60a5fa"/>
+  </g>
+ 
+  <!-- Stars scattered -->
+  <g fill="white" opacity="0.5">
+    <circle cx="50"  cy="55"  r="1"/>
+    <circle cx="150" cy="40"  r="1.2"/>
+    <circle cx="680" cy="50"  r="1"/>
+    <circle cx="760" cy="35"  r="1.2"/>
+    <circle cx="40"  cy="530" r="1"/>
+    <circle cx="755" cy="545" r="1.2"/>
+  </g>
+ 
+  <!-- MAP GLOW backdrop -->
+  <ellipse cx="380" cy="310" rx="320" ry="210" fill="url(#glow)"/>
+ 
+  <!-- UZBEKISTAN MAP OUTLINE (simplified polygon, clockwise from NW) -->
+  <!-- Scaled to fit nicely in 800x600 canvas, centered around ~380,310 -->
+  <path d="
+    M 148,148
+    L 195,118
+    L 268,108
+    L 335,112
+    L 395,128
+    L 448,118
+    L 488,130
+    L 518,142
+    L 548,148
+    L 572,135
+    L 605,132
+    L 632,118
+    L 648,138
+    L 640,165
+    L 622,192
+    L 608,215
+    L 590,240
+    L 558,268
+    L 535,300
+    L 510,338
+    L 498,375
+    L 485,405
+    L 468,428
+    L 442,448
+    L 408,452
+    L 375,445
+    L 345,430
+    L 318,412
+    L 295,392
+    L 272,365
+    L 255,338
+    L 242,305
+    L 228,275
+    L 218,248
+    L 205,222
+    L 188,198
+    L 165,175
+    Z
+  " fill="url(#mapFill)" stroke="#60a5fa" stroke-width="2" opacity="0.88" filter="url(#shadow)"/>
+ 
+  <!-- Map inner details (region lines, subtle) -->
+  <g stroke="#3b82f6" stroke-width="0.8" opacity="0.3" fill="none">
+    <!-- Amu Darya river approximate -->
+    <path d="M 165,175 Q 200,260 270,330 Q 300,360 295,392"/>
+    <!-- Syr Darya -->
+    <path d="M 548,148 Q 510,200 490,250 Q 470,300 440,320"/>
+  </g>
+ 
+  <!-- CITY DOTS with glow -->
+ 
+  <!-- Tashkent (capital) -->
+  <circle cx="520" cy="175" r="18" fill="url(#cityDot)" opacity="0.6"/>
+  <circle cx="520" cy="175" r="7"  fill="#60a5fa" filter="url(#glow2)"/>
+  <circle cx="520" cy="175" r="4"  fill="#ffffff"/>
+  <text x="533" y="170" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ffffff" opacity="0.95">Toshkent</text>
+  <text x="533" y="184" font-family="Arial, sans-serif" font-size="10" fill="#90c0ff" opacity="0.8">★ Poytaxt</text>
+ 
+  <!-- Samarkand -->
+  <circle cx="408" cy="365" r="14" fill="url(#cityDot)" opacity="0.5"/>
+  <circle cx="408" cy="365" r="5"  fill="#60a5fa" filter="url(#glow2)"/>
+  <circle cx="408" cy="365" r="3"  fill="#d0e8ff"/>
+  <text x="420" y="362" font-family="Arial, sans-serif" font-size="11" fill="#d0e8ff" opacity="0.9">Samarqand</text>
+ 
+  <!-- Bukhara -->
+  <circle cx="282" cy="340" r="14" fill="url(#cityDot)" opacity="0.5"/>
+  <circle cx="282" cy="340" r="5"  fill="#60a5fa" filter="url(#glow2)"/>
+  <circle cx="282" cy="340" r="3"  fill="#d0e8ff"/>
+  <text x="207" y="338" font-family="Arial, sans-serif" font-size="11" fill="#d0e8ff" opacity="0.9">Buxoro</text>
+ 
+  <!-- Namangan (Fergana Valley) -->
+  <circle cx="610" cy="188" r="12" fill="url(#cityDot)" opacity="0.45"/>
+  <circle cx="610" cy="188" r="4"  fill="#60a5fa" filter="url(#glow2)"/>
+  <circle cx="610" cy="188" r="2.5" fill="#d0e8ff"/>
+  <text x="618" y="186" font-family="Arial, sans-serif" font-size="10" fill="#c0deff" opacity="0.85">Namangan</text>
+ 
+  <!-- Nukus (NW) -->
+  <circle cx="198" cy="148" r="10" fill="url(#cityDot)" opacity="0.4"/>
+  <circle cx="198" cy="148" r="4"  fill="#60a5fa" filter="url(#glow2)"/>
+  <circle cx="198" cy="148" r="2.5" fill="#d0e8ff"/>
+  <text x="208" y="146" font-family="Arial, sans-serif" font-size="10" fill="#c0deff" opacity="0.8">Nukus</text>
+ 
+  <!-- CONNECTION LINES between cities -->
+  <g stroke="#3b82f6" stroke-width="1" stroke-dasharray="4,4" opacity="0.4" fill="none">
+    <line x1="520" y1="175" x2="408" y2="365"/>
+    <line x1="520" y1="175" x2="282" y2="340"/>
+    <line x1="520" y1="175" x2="610" y2="188"/>
+    <line x1="520" y1="175" x2="198" y2="148"/>
+  </g>
+ 
+  <!-- Uzbekistan FLAG STRIP (top area, subtle) -->
+  <rect x="80" y="30" width="640" height="8"  fill="#009AB5" opacity="0.7" rx="2"/>
+  <rect x="80" y="40" width="640" height="5"  fill="#ffffff"  opacity="0.35" rx="1"/>
+  <rect x="80" y="47" width="640" height="8"  fill="#1DB954"  opacity="0.7" rx="2"/>
+ 
+  <!-- Crescent + stars in upper right (small) -->
+  <circle cx="700" cy="480" r="22" fill="#2563EB" opacity="0.15"/>
+  <circle cx="700" cy="480" r="13" fill="#ccdcf8" opacity="0.8"/>
+  <circle cx="708" cy="477" r="10" fill="#0d2550"/>
+  <!-- 3 small stars -->
+  <g fill="#ccdcf8" opacity="0.85">
+    <polygon points="722,468 723,471 726,471 724,473 725,476 722,474 719,476 720,473 718,471 721,471"/>
+    <polygon points="730,478 731,481 734,481 732,483 733,486 730,484 727,486 728,483 726,481 729,481"/>
+    <polygon points="722,488 723,491 726,491 724,493 725,496 722,494 719,496 720,493 718,491 721,491"/>
+  </g>
+ 
+  <!-- TITLE TEXT overlaid on image -->
+  <rect x="80" y="510" width="640" height="60" fill="#061630" opacity="0.7" rx="8"/>
+  <text x="400" y="535" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="11" fill="#90c0ff" opacity="0.8" letter-spacing="4">MARKAZIY OSIYO</text>
+  <text x="400" y="558" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="17" font-weight="bold" fill="#ffffff" opacity="0.95" letter-spacing="2">O'ZBEKISTON XARITASI</text>
+</svg>
