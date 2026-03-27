@@ -57,7 +57,7 @@
 </template>
 
 <script setup lang="ts">
-import whyUzbekistanImage from '@/assets/images/whyuzbeistan-image.jpg'
+import whyUzbekistanImage from '@/assets/images/why-uzbekistan.svg'
 
 const features = [
   {

@@ -106,7 +106,7 @@
 </template>
 
 <script setup lang="ts">
-import BgImage from "@/assets/images/background.png";
+import BgImage from "@/assets/images/background.svg";
 import RoundedIcon from "@/assets/icons/rounded.svg";
 import VectorIcon from "@/assets/icons/Vector.svg";
 </script>
