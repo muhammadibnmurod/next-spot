@@ -5,7 +5,7 @@
 
         <!-- Left: Image -->
         <div class="w-full md:flex-[0_0_45%]">
-          <WhyUzbekistanImage class="w-full rounded-2xl block" />
+          <img :src="WhyUzbekistanImage" alt="" class="w-full rounded-2xl block" />
         </div>
 
         <!-- Right: Text -->
@@ -53,7 +53,7 @@
 </template>
 
 <script setup lang="ts">
-import WhyUzbekistanImage from '@/assets/images/why-uzbekistan.svg'
+import WhyUzbekistanImage from '@/assets/images/why-uzbekistan.jpg'
 
 const features = [
   {

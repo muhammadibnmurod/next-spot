@@ -53,7 +53,7 @@
             {{ $t('main.heading1') }}
           </h1>
           <h1
-            class="text-3xl sm:text-4xl md:text-5xl font-black text-[#1a3fbb] leading-tight tracking-tight"
+            class="text-2xl sm:text-4xl md:text-4xl font-black text-[#1a3fbb] leading-tight tracking-tight"
           >
             {{ $t('main.heading2') }}
           </h1>
@@ -83,10 +83,10 @@
 
       <!-- RIGHT: Image card -->
       <div class="flex-1 flex justify-center items-center w-full md:w-auto">
-        <div class="relative w-full max-w-[420px] sm:max-w-[500px] md:max-w-[580px]">
+        <div class="relative w-full max-w-[34.5rem] sm:max-w-[31.25rem] md:max-w-[40.25rem]">
           <!-- Main image -->
           <div class="rounded-2xl md:rounded-3xl overflow-hidden shadow-xl md:shadow-2xl">
-            <BgImage class="w-full h-full" />
+            <img :src="BgImage" alt="" class="w-full h-full">
           </div>
 
           <!-- Rounded.svg — bottom left of image -->
@@ -102,7 +102,7 @@
 </template>
 
 <script setup lang="ts">
-import BgImage from '@/assets/images/why-uzbekistan.svg'
+import BgImage from '@/assets/images/main.jpg'
 import RoundedIcon from "@/assets/icons/rounded.svg";
 import VectorIcon from "@/assets/icons/Vector.svg";
 </script>

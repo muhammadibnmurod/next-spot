@@ -6,7 +6,7 @@
     <div class="mx-auto px-4 sm:px-6 h-[64px] sm:h-[72px] md:h-[80px] flex items-center justify-between">
       <!-- Logo -->
       <NuxtLink to="/" class="flex items-center no-underline flex-shrink-0">
-        <div class="h-12 sm:h-14 md:h-16 flex items-center justify-center">
+        <div class="h-[8.55rem] sm:h-[9rem] md:h-[10rem] flex items-center justify-center">
           <img :src="Logo" alt="Logo" class="h-full w-auto object-contain" />
         </div>
       </NuxtLink>
@@ -151,7 +151,7 @@ import { ref, computed, onMounted, onUnmounted } from "vue";
 import { NuxtLink } from "#components";
 import { NButton, NIcon } from "naive-ui";
 import { MenuOutline, CloseOutline } from "@vicons/ionicons5";
-import Logo from "@/assets/images/Logo.png";
+import Logo from "@/assets/images/logo2.png";
 
 const { locale, setLocale } = useI18n();
 

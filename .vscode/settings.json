@@ -1,5 +1,23 @@
 {
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "tailwindCSS.classAttributes": ["class", "ui"],
+  "tailwindCSS.experimental.classRegex": [
+    ["ui:\\s*{([^)]*)\\s*}", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+  "i18n-ally.sortKeys": true,
+  "i18n-ally.keystyle": "nested",
+  "i18n-ally.displayLanguage": "uz",
+  "i18n-ally.sourceLanguage": "uz",
   "i18n-ally.localesPaths": [
-    "locales"
+    "./locales/uz",
+    "./locales/uz_cyr",
+    "./locales/ru",
+    "./locales/en",
+    "./locales/ko"
   ]
 }

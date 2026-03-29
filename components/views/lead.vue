@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import image from "@/assets/images/lead-image.jpg";
+import image from "@/assets/images/Lead.jpg";
 import RoundedIcon from "@/assets/icons/rounded.svg";
 
 const itemKeys = ['lead.item1', 'lead.item2', 'lead.item3', 'lead.item4'];
