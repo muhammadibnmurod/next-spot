@@ -3,10 +3,14 @@
     class="fixed top-0 left-0 right-0 z-50 bg-white transition-shadow duration-300"
     :class="{ 'shadow-md': isScrolled }"
   >
-    <div class="mx-auto px-4 sm:px-6 h-[64px] sm:h-[72px] md:h-[80px] flex items-center justify-between">
+    <div
+      class="mx-auto px-4 sm:px-6 h-[64px] sm:h-[72px] md:h-[80px] flex items-center justify-between"
+    >
       <!-- Logo -->
       <NuxtLink to="/" class="flex items-center no-underline flex-shrink-0">
-        <div class="h-[8.55rem] sm:h-[9rem] md:h-[10rem] flex items-center justify-center">
+        <div
+          class="h-[8.55rem] sm:h-[9rem] md:h-[10rem] flex items-center justify-center"
+        >
           <img :src="Logo" alt="Logo" class="h-full w-auto object-contain" />
         </div>
       </NuxtLink>
@@ -42,7 +46,12 @@
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 9l-7 7-7-7"
+              />
             </svg>
           </button>
 
@@ -55,7 +64,9 @@
                 v-for="loc in localeOptions"
                 :key="loc.code"
                 class="w-full flex items-center gap-2 px-4 py-2.5 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-150"
-                :class="{ 'bg-blue-50 text-blue-600 font-semibold': locale === loc.code }"
+                :class="{
+                  'bg-blue-50 text-blue-600 font-semibold': locale === loc.code,
+                }"
                 @click="switchLang(loc.code)"
               >
                 <span>{{ loc.flag }}</span>
@@ -70,7 +81,7 @@
           class="hidden md:flex bg-[#1a3fbb] rounded-full px-4 lg:px-5 py-2 text-white text-sm font-semibold hover:bg-[#0a2c91] transition-colors duration-200 whitespace-nowrap"
           @click="handleStart"
         >
-          {{ $t('navigation.start') }}
+          {{ $t("navigation.start") }}
         </button>
 
         <!-- Hamburger (mobile + tablet nav hidden on lg) -->
@@ -116,9 +127,11 @@
             v-for="loc in localeOptions"
             :key="loc.code"
             class="flex-1 flex items-center justify-center gap-1 py-2 rounded-lg border text-xs font-medium transition-colors duration-150"
-            :class="locale === loc.code
-              ? 'border-blue-500 bg-blue-50 text-blue-600'
-              : 'border-gray-200 text-gray-600 hover:border-blue-300 hover:text-blue-500'"
+            :class="
+              locale === loc.code
+                ? 'border-blue-500 bg-blue-50 text-blue-600'
+                : 'border-gray-200 text-gray-600 hover:border-blue-300 hover:text-blue-500'
+            "
             @click="switchLang(loc.code)"
           >
             <span>{{ loc.flag }}</span>
@@ -139,7 +152,7 @@
           }"
           @click="handleStart"
         >
-          {{ $t('navigation.start') }}
+          {{ $t("navigation.start") }}
         </n-button>
       </div>
     </Transition>
@@ -168,11 +181,10 @@ const navLinks = [
 ];
 
 const localeOptions = [
-  { code: "uz", label: "UZ", flag: "🇺🇿" },
-  { code: "kril", label: "КР", flag: "🇺🇿" },
-  { code: "en", label: "EN", flag: "🇬🇧" },
-  { code: "ru", label: "RU", flag: "🇷🇺" },
   { code: "ko", label: "JP", flag: "🇯🇵" },
+  { code: "en", label: "EN", flag: "🇺🇸" },
+  { code: "uz", label: "UZ", flag: "🇺🇿" },
+  { code: "ru", label: "RU", flag: "🇷🇺" },
 ];
 
 const currentLocaleLabel = computed(() => {
@@ -193,7 +205,10 @@ function onScroll() {
 }
 
 function onClickOutside(e: MouseEvent) {
-  if (langDropdownRef.value && !langDropdownRef.value.contains(e.target as Node)) {
+  if (
+    langDropdownRef.value &&
+    !langDropdownRef.value.contains(e.target as Node)
+  ) {
     langOpen.value = false;
   }
 }
