@@ -25,10 +25,13 @@
     "position": "Lavozim",
     "subject": "Mavzu",
     "message": "Murojaat mazmuni",
+    "email": "Email",
+    "phone": "Telefon raqam",
     "submit": "Yuborish",
     "sending": "Yuborilmoqda...",
     "success": "Xabaringiz muvaffaqiyatli yuborildi!",
-    "error": "Xatolik yuz berdi. Qayta urinib ko'ring."
+    "error": "Xatolik yuz berdi. Qayta urinib ko'ring.",
+    "email": "Elektron pochta"
   },
   "footer": {
     "tagline": "Yaponiya va O'zbekiston o'rtasida ishonchli biznes ko'prik",

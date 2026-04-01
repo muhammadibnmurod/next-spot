@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto">
       <!-- Title -->
       <h2 class="text-center font-black mb-8 sm:mb-10 md:mb-12">
-        <span class="text-[#101828] text-3xl sm:text-[38px]">{{ $t('services.heading1') }} </span>
+        <span class="text-[#101828] text-3xl pr-3 sm:text-[38px]">{{ $t('services.heading1') }} </span>
         <span class="text-[#1447E6] text-3xl sm:text-[38px]">{{ $t('services.heading2') }}</span>
       </h2>
 
