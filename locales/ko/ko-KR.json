@@ -16,7 +16,7 @@
     "about": "会社概要",
     "why_uzbekistan": "なぜウズベキスタンか",
     "contact": "お問い合わせ",
-    "start": "始める"
+    "start": "無料相談に申し込む"
   },
   "advantages": {
     "heading1": "私たちの",
@@ -94,6 +94,18 @@
     "subtitle": "NEXT SPOTと共にウズベキスタン市場に自信を持って参入しましょう。成功した進出と成長のためのあらゆるサポートを提供します。",
     "btn_meeting": "オンラインミーティング",
     "btn_info": "詳しく見る"
+  },
+  "consultation": {
+    "title": "無料相談に申し込む",
+    "name": "氏名",
+    "company": "会社名",
+    "position": "役職",
+    "subject": "件名",
+    "message": "相談内容",
+    "submit": "送信する",
+    "sending": "送信中...",
+    "success": "メッセージが送信されました！",
+    "error": "エラーが発生しました。もう一度お試しください。"
   },
   "footer": {
     "tagline": "日本とウズベキスタンをつなぐ信頼の架け橋を構築します",

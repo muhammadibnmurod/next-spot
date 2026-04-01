@@ -157,6 +157,8 @@
       </div>
     </Transition>
   </header>
+
+  <ConsultationModal v-model="showConsultation" />
 </template>
 
 <script setup lang="ts">
@@ -171,6 +173,7 @@ const { locale, setLocale } = useI18n();
 const isScrolled = ref(false);
 const mobileOpen = ref(false);
 const langOpen = ref(false);
+const showConsultation = ref(false);
 const langDropdownRef = ref<HTMLElement | null>(null);
 
 const navLinks = [
@@ -198,6 +201,7 @@ async function switchLang(code: string) {
 
 function handleStart() {
   mobileOpen.value = false;
+  showConsultation.value = true;
 }
 
 function onScroll() {

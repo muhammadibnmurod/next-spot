@@ -16,7 +16,7 @@
     "about": "Biz haqimizda",
     "why_uzbekistan": "Nega O'zbekiston",
     "contact": "Aloqa",
-    "start": "Boshlash"
+    "start": "Bepul maslahat olish"
   },
   "advantages": {
     "heading1": "BIZNING",
@@ -94,6 +94,18 @@
     "subtitle": "NEXT SPOT bilan O'zbekiston bozoriga ishonch bilan kiring. Biz sizning muvaffaqiyatli kirish va rivojlanishingiz uchun barcha yordam ko'rsatamiz.",
     "btn_meeting": "Onlayn uchrashuv",
     "btn_info": "Batafsil ma'lumot"
+  },
+  "consultation": {
+    "title": "Bepul maslahat olish",
+    "name": "Ism Familiya",
+    "company": "Kompaniya nomi",
+    "position": "Lavozim",
+    "subject": "Mavzu",
+    "message": "Murojaat mazmuni",
+    "submit": "Yuborish",
+    "sending": "Yuborilmoqda...",
+    "success": "Xabaringiz muvaffaqiyatli yuborildi!",
+    "error": "Xatolik yuz berdi. Qayta urinib ko'ring."
   },
   "footer": {
     "tagline": "Yaponiya va O'zbekiston o'rtasida ishonchli biznes ko'prik",

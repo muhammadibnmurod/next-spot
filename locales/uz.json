@@ -16,6 +16,34 @@
     "about": "Biz haqimizda",
     "why_uzbekistan": "Nega O'zbekiston",
     "contact": "Aloqa",
-    "start": "Boshlash"
+    "start": "Bepul maslahat olish"
+  },
+  "consultation": {
+    "title": "Bepul maslahat olish",
+    "name": "Ism Familiya",
+    "company": "Kompaniya nomi",
+    "position": "Lavozim",
+    "subject": "Mavzu",
+    "message": "Murojaat mazmuni",
+    "submit": "Yuborish",
+    "sending": "Yuborilmoqda...",
+    "success": "Xabaringiz muvaffaqiyatli yuborildi!",
+    "error": "Xatolik yuz berdi. Qayta urinib ko'ring."
+  },
+  "footer": {
+    "tagline": "Yaponiya va O'zbekiston o'rtasida ishonchli biznes ko'prik",
+    "services_title": "Xizmatlar",
+    "company_title": "Kompaniya",
+    "contact_title": "Aloqa",
+    "service1": "Bozorga kirish",
+    "service2": "Konsalting",
+    "service3": "Huquqiy yordam",
+    "service4": "IT yechimlar",
+    "company1": "Biz haqimizda",
+    "company2": "Missiya",
+    "company3": "Jamoa",
+    "company4": "Aloqa",
+    "contact1": "Toshkent, O'zbekiston",
+    "copyright": "© 2026 NEXT SPOT. Barcha huquqlar himoyalangan."
   }
 }

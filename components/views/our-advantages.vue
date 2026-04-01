@@ -2,8 +2,8 @@
   <section id="about" class="section-anchor bg-white py-12 sm:py-16 md:py-20 px-4 sm:px-6">
     <div class="max-w-7xl mx-auto">
       <!-- Title -->
-      <h2 class="text-center font-black mb-8 sm:mb-10 md:mb-12">
-        <span class="text-[#101828] text-3xl sm:text-4xl md:text-[48px]">{{ $t('advantages.heading1') }} </span>
+      <h2 class="text-center font-black gap-4 mb-8 sm:mb-10 md:mb-12">
+        <span class="text-[#101828] text-3xl sm:text-4xl pr-4 md:text-[48px]">{{ $t('advantages.heading1') }} </span>
         <span class="text-[#1447E6] text-3xl sm:text-4xl md:text-[48px]">{{ $t('advantages.heading2') }}</span>
       </h2>
 
@@ -22,7 +22,7 @@
           </div>
 
           <!-- Text -->
-          <div class="flex flex-col gap-2 sm:gap-3">
+          <div class="flex flex-col gap-3 sm:gap-3 ">
             <h3 class="text-[#0d1b3e] font-bold text-base sm:text-lg leading-snug">
               {{ $t(item.titleKey) }}
             </h3>

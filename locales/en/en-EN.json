@@ -16,7 +16,7 @@
     "about": "About Us",
     "why_uzbekistan": "Why Uzbekistan",
     "contact": "Contact",
-    "start": "Get Started"
+    "start": "Book a free consultation"
   },
   "advantages": {
     "heading1": "OUR",
@@ -94,6 +94,18 @@
     "subtitle": "Enter the Uzbekistan market with confidence with NEXT SPOT. We provide all the support for your successful entry and development.",
     "btn_meeting": "Online Meeting",
     "btn_info": "Learn More"
+  },
+  "consultation": {
+    "title": "Book a Free Consultation",
+    "name": "Full Name",
+    "company": "Company Name",
+    "position": "Job Title",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Send",
+    "sending": "Sending...",
+    "success": "Your message has been sent successfully!",
+    "error": "An error occurred. Please try again."
   },
   "footer": {
     "tagline": "A trusted business bridge between Japan and Uzbekistan",

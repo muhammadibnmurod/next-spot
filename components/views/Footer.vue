@@ -100,6 +100,7 @@ const company = [
 const contacts = [
   { type: "i18n", key: "footer.contact1" },
   { type: "raw", value: "info@nextspot.uz" },
-  { type: "raw", value: "+998 (71) 123-45-67" },
+  { type: "raw", value: "+998 (70) 228 72 23" },
+  { type: "raw", value: "@NEXTSPOT_UZ" },
 ];
 </script>
