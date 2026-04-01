@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
+  compatibilityDate: "2025-07-15",
   devtools: { enabled: false },
 
   components: [
@@ -9,22 +9,20 @@ export default defineNuxtConfig({
     { path: "~/components/layout", pathPrefix: false },
   ],
 
-  plugins: [
-    "@/plugins/pinia-persistedstate.js",
-  ],
+  plugins: ["@/plugins/pinia-persistedstate.js"],
 
   modules: [
     "@nuxtjs/tailwindcss",
     [
-      '@nuxtjs/color-mode',
+      "@nuxtjs/color-mode",
       {
-        preference: 'system',
-        fallback: 'light',
-        classSuffix: '',
+        preference: "system",
+        fallback: "light",
+        classSuffix: "",
       },
     ],
-    'nuxt-svgo',
-    "@nuxtjs/i18n"
+    "nuxt-svgo",
+    "@nuxtjs/i18n",
   ],
 
   devServer: {
@@ -39,7 +37,7 @@ export default defineNuxtConfig({
     smtpPass: process.env.SMTP_PASS,
     public: {
       NUXT_PUBLIC_API_BASE_URL: process.env.NUXT_PUBLIC_API_BASE_URL,
-    }
+    },
   },
 
   i18n: {
@@ -57,7 +55,7 @@ export default defineNuxtConfig({
       { code: "kril", file: "uz_cyr/cr-CR.json", language: "kril" },
       { code: "ru", file: "ru/ru-RU.json", language: "ru" },
       { code: "en", file: "en/en-EN.json", language: "en" },
-      { code: "ko", file: "ko/ko-KR.json", language: "ko" }
+      { code: "ko", file: "ko/ko-KR.json", language: "ko" },
     ],
     defaultLocale: "uz",
   },
@@ -112,19 +110,6 @@ export default defineNuxtConfig({
     },
   },
 
-  app: {
-    head: {
-      title: "Base-Project",
-      meta: [
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
-        { charset: "utf-8" },
-        { name: "theme-color", content: "#ffffff" },
-        { name: "description", content: "NBT - Next Big Thing" },
-      ],
-      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
-    },
-  },
-
   postcss: {
     plugins: {
       tailwindcss: {},
@@ -132,15 +117,25 @@ export default defineNuxtConfig({
     },
   },
 
+  app: {
+    head: {
+      title: "Next Spot",
+      meta: [
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { charset: "utf-8" },
+        { name: "theme-color", content: "#ffffff" },
+        { name: "description", content: "NBT - Next Big Thing" },
+      ],
+      link: [{ rel: "icon", type: "image/png", href: "/images/logo2.png" }],
+    },
+  },
+
   // imports - autoImport
-  // If you want auto-import, set to true. 
+  // If you want auto-import, set to true.
   // If you don't need it, set to false or remove this option.
   imports: {
     autoImport: true,
   },
 
-  css: [
-    "@/assets/css/global.css",
-  ],
-
-})
+  css: ["@/assets/css/global.css"],
+});
