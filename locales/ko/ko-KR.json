@@ -29,6 +29,7 @@
     "nameError": "必須",
     "namePlaceholder": "氏名を入力してください",
     "phone": "電話番号",
+    "phoneOptional": "数字を入力してください",
     "position": "役職",
     "positionPlaceholder": "役職を入力してください",
     "sending": "送信中...",

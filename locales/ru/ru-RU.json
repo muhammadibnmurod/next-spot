@@ -29,6 +29,7 @@
     "nameError": "Обязательный",
     "namePlaceholder": "Введите ваше имя и фамилию",
     "phone": "Номер телефона",
+    "phoneOptional": "Введите только номер",
     "position": "Должность",
     "positionPlaceholder": "Введите вашу должность",
     "sending": "Отправка...",

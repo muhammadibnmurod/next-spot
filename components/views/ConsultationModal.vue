@@ -102,9 +102,6 @@
                   placeholder="+998 90 123 45 67"
                   :class="fieldClass(false)"
                 />
-                <p class="text-[11px] text-gray-400 mt-1">
-                  Faqat raqam kiriting
-                </p>
               </Field>
               <Field :label="$t('consultation.position')" icon="💼">
                 <input

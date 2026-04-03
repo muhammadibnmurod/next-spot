@@ -29,6 +29,7 @@
     "nameError": "Compulsory",
     "namePlaceholder": "Enter your full name",
     "phone": "Phone Number",
+    "phoneOptional": "Enter a number only",
     "position": "Job Title",
     "positionPlaceholder": "Enter your job title",
     "sending": "Sending...",
