@@ -47,6 +47,7 @@
 
         <!-- Form -->
         <form
+          novalidate
           class="px-7 py-6 flex flex-col gap-4"
           @submit.prevent="submitForm"
         >
@@ -75,17 +76,17 @@
                 <input
                   v-model="form.name"
                   type="text"
-                  required
                   :placeholder="$t('consultation.namePlaceholder')"
-                  v-bind="inputClass"
+                  :class="fieldClass(errors.name)"
                 />
+                <p v-if="errors.name" class="text-[11px] text-red-500 mt-1 font-medium">{{ $t("consultation.nameError") }}</p>
               </Field>
               <Field :label="$t('consultation.company')" icon="🏢">
                 <input
                   v-model="form.company"
                   type="text"
                   :placeholder="$t('consultation.companyPlaceholder')"
-                  v-bind="inputClass"
+                  :class="fieldClass(false)"
                 />
               </Field>
             </div>
@@ -99,7 +100,7 @@
                   inputmode="numeric"
                   pattern="[0-9+\-\s]+"
                   placeholder="+998 90 123 45 67"
-                  v-bind="inputClass"
+                  :class="fieldClass(false)"
                 />
                 <p class="text-[11px] text-gray-400 mt-1">
                   Faqat raqam kiriting
@@ -110,31 +111,31 @@
                   v-model="form.position"
                   type="text"
                   :placeholder="$t('consultation.positionPlaceholder')"
-                  v-bind="inputClass"
+                  :class="fieldClass(false)"
                 />
               </Field>
             </div>
 
             <!-- Email -->
-            <Field :label="$t('consultation.email')" icon="✉️">
+            <Field :label="$t('consultation.email')" required icon="✉️">
               <input
                 v-model="form.email"
                 type="email"
                 inputmode="email"
                 autocomplete="email"
                 placeholder="example@company.com"
-                v-bind="inputClass"
+                :class="fieldClass(errors.email)"
               />
+              <p v-if="errors.email" class="text-[11px] text-red-500 mt-1 font-medium">{{ $t("consultation.nameError") }}</p>
             </Field>
 
             <!-- Mavzu -->
-            <Field :label="$t('consultation.subject')" required icon="📌">
+            <Field :label="$t('consultation.subject')" icon="📌">
               <input
                 v-model="form.subject"
                 type="text"
-                required
                 :placeholder="$t('consultation.subjectPlaceholder')"
-                v-bind="inputClass"
+                :class="fieldClass(false)"
               />
             </Field>
 
@@ -149,10 +150,10 @@
               <textarea
                 v-model="form.message"
                 rows="4"
-                required
                 :placeholder="$t('consultation.messagePlaceholder')"
-                class="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1a3fbb]/20 focus:border-[#1a3fbb] focus:bg-white transition-all resize-none leading-relaxed"
+                :class="['w-full px-4 py-3 rounded-xl border text-sm text-gray-900 placeholder-gray-300 focus:outline-none focus:ring-2 focus:bg-white transition-all resize-none leading-relaxed', errors.message ? 'border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-200' : 'border-gray-200 bg-gray-50 focus:ring-[#1a3fbb]/20 focus:border-[#1a3fbb]']"
               />
+              <p v-if="errors.message" class="text-[11px] text-red-500 font-medium">{{ $t("consultation.nameError") }}</p>
             </div>
 
             <!-- Submit -->
@@ -175,7 +176,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, computed } from "vue";
+import { ref, watch } from "vue";
 import emailjs from "@emailjs/browser";
 
 const EMAILJS_SERVICE_ID = "service_0td2ckc";
@@ -195,17 +196,23 @@ const form = ref({
   email: "",
 });
 const status = ref<"idle" | "loading" | "success" | "error">("idle");
+const errors = ref({ name: false, email: false, message: false });
 
-const inputClass = computed(() => ({
-  class:
-    "w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-sm text-gray-900 placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-[#1a3fbb]/20 focus:border-[#1a3fbb] focus:bg-white transition-all",
-}));
+function fieldClass(hasError: boolean) {
+  return [
+    "w-full px-4 py-3 rounded-xl border text-sm text-gray-900 placeholder-gray-300 focus:outline-none focus:ring-2 focus:bg-white transition-all",
+    hasError
+      ? "border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-200"
+      : "border-gray-200 bg-gray-50 focus:ring-[#1a3fbb]/20 focus:border-[#1a3fbb]",
+  ].join(" ");
+}
 
 watch(
   () => props.modelValue,
   (val) => {
     if (val) {
       status.value = "idle";
+      errors.value = { name: false, email: false, message: false };
       form.value = {
         name: "",
         company: "",
@@ -220,6 +227,13 @@ watch(
 );
 
 async function submitForm() {
+  errors.value = {
+    name: !form.value.name.trim(),
+    email: !form.value.email.trim(),
+    message: !form.value.message.trim(),
+  };
+  if (errors.value.name || errors.value.email || errors.value.message) return;
+
   status.value = "loading";
   try {
     const params = {
@@ -229,9 +243,8 @@ async function submitForm() {
       subject: form.value.subject,
       message: form.value.message,
       contact_phone: form.value.phone || "kiritilmagan",
-      contact_email: form.value.email || "kiritilmagan",
+      contact_email: form.value.email,
     };
-    console.log("Sending to EmailJS:", params);
     await emailjs.send(
       EMAILJS_SERVICE_ID,
       EMAILJS_TEMPLATE_ID,
