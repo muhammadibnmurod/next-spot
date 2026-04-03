@@ -73,15 +73,32 @@
             <!-- Row: Ism + Kompaniya -->
             <div class="grid grid-cols-2 gap-3">
               <Field :label="$t('consultation.name')" required icon="👤">
+                <label
+                  class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider"
+                >
+                  {{ $t("consultation.name") }}
+                  <span class="text-red-500">*</span>
+                </label>
+
                 <input
                   v-model="form.name"
                   type="text"
                   :placeholder="$t('consultation.namePlaceholder')"
                   :class="fieldClass(errors.name)"
                 />
-                <p v-if="errors.name" class="text-[11px] text-red-500 mt-1 font-medium">{{ $t("consultation.nameError") }}</p>
+                <p
+                  v-if="errors.name"
+                  class="text-[11px] text-red-500 mt-1 font-medium"
+                >
+                  {{ $t("consultation.nameError") }}
+                </p>
               </Field>
               <Field :label="$t('consultation.company')" icon="🏢">
+                <label
+                  class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider"
+                >
+                  {{ $t("consultation.company") }}
+                </label>
                 <input
                   v-model="form.company"
                   type="text"
@@ -94,6 +111,12 @@
             <!-- Row: Telefon + Lavozim -->
             <div class="grid grid-cols-2 gap-3">
               <Field :label="$t('consultation.phone')" icon="📞">
+                <label
+                  class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider"
+                >
+                  {{ $t("consultation.phone") }}
+                </label>
+
                 <input
                   v-model="form.phone"
                   type="tel"
@@ -104,6 +127,11 @@
                 />
               </Field>
               <Field :label="$t('consultation.position')" icon="💼">
+                <label
+                  class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider"
+                >
+                  {{ $t("consultation.position") }}
+                </label>
                 <input
                   v-model="form.position"
                   type="text"
@@ -115,6 +143,12 @@
 
             <!-- Email -->
             <Field :label="$t('consultation.email')" required icon="✉️">
+              <label
+                class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider"
+              >
+                {{ $t("consultation.email") }}
+                <span class="text-red-500">*</span>
+              </label>
               <input
                 v-model="form.email"
                 type="email"
@@ -123,11 +157,21 @@
                 placeholder="example@company.com"
                 :class="fieldClass(errors.email)"
               />
-              <p v-if="errors.email" class="text-[11px] text-red-500 mt-1 font-medium">{{ $t("consultation.nameError") }}</p>
+              <p
+                v-if="errors.email"
+                class="text-[11px] text-red-500 mt-1 font-medium"
+              >
+                {{ $t("consultation.nameError") }}
+              </p>
             </Field>
 
             <!-- Mavzu -->
             <Field :label="$t('consultation.subject')" icon="📌">
+              <label
+                class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider"
+              >
+                {{ $t("consultation.company") }}
+              </label>
               <input
                 v-model="form.subject"
                 type="text"
@@ -148,9 +192,19 @@
                 v-model="form.message"
                 rows="4"
                 :placeholder="$t('consultation.messagePlaceholder')"
-                :class="['w-full px-4 py-3 rounded-xl border text-sm text-gray-900 placeholder-gray-300 focus:outline-none focus:ring-2 focus:bg-white transition-all resize-none leading-relaxed', errors.message ? 'border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-200' : 'border-gray-200 bg-gray-50 focus:ring-[#1a3fbb]/20 focus:border-[#1a3fbb]']"
+                :class="[
+                  'w-full px-4 py-3 rounded-xl border text-sm text-gray-900 placeholder-gray-300 focus:outline-none focus:ring-2 focus:bg-white transition-all resize-none leading-relaxed',
+                  errors.message
+                    ? 'border-red-400 bg-red-50 focus:border-red-400 focus:ring-red-200'
+                    : 'border-gray-200 bg-gray-50 focus:ring-[#1a3fbb]/20 focus:border-[#1a3fbb]',
+                ]"
               />
-              <p v-if="errors.message" class="text-[11px] text-red-500 font-medium">{{ $t("consultation.nameError") }}</p>
+              <p
+                v-if="errors.message"
+                class="text-[11px] text-red-500 font-medium"
+              >
+                {{ $t("consultation.nameError") }}
+              </p>
             </div>
 
             <!-- Submit -->
