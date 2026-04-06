@@ -143,4 +143,22 @@ export default defineNuxtConfig({
   },
 
   css: ["@/assets/css/global.css"],
+
+  vite: {
+    optimizeDeps: {
+      include: ["naive-ui"],
+    },
+  },
+
+  build: {
+    transpile:
+      process.env.NODE_ENV === "production"
+        ? [
+            "naive-ui",
+            "vueuc",
+            "@css-render/vue3-ssr",
+            "@juggle/resize-observer",
+          ]
+        : ["@juggle/resize-observer"],
+  },
 });
