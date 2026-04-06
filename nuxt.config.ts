@@ -60,7 +60,7 @@ export default defineNuxtConfig({
     defaultLocale: "uz",
   },
 
-  ssr: false,
+  ssr: true,
 
   svgo: {
     componentPrefix: "icon",
@@ -124,7 +124,12 @@ export default defineNuxtConfig({
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         { charset: "utf-8" },
         { name: "theme-color", content: "#ffffff" },
-        { name: "description", content: "NBT - Next Big Thing" },
+        { property: "og:title", content: "Next Spot" },
+        { property: "og:site_name", content: "Next Spot" },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: "https://nextspot.uz/" },
+        { property: "og:description", content: "NBT - Next Big Thing" },
+        { property: "og:image", content: "https://nextspot.uz/images/logo2.png" },
       ],
       link: [{ rel: "icon", type: "image/png", href: "/images/logo2.png" }],
     },
