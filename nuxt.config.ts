@@ -128,7 +128,7 @@ export default defineNuxtConfig({
         { property: "og:site_name", content: "Next Spot" },
         { property: "og:type", content: "website" },
         { property: "og:url", content: "https://nextspot.uz/" },
-        { property: "og:description", content: "NBT - Next Big Thing" },
+        { property: "og:description", content: "LEAD THE FRIONTIER" },
         { property: "og:image", content: "https://nextspot.uz/images/logo2.png" },
       ],
       link: [{ rel: "icon", type: "image/png", href: "/images/logo2.png" }],
