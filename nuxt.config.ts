@@ -35,8 +35,12 @@ export default defineNuxtConfig({
     smtpPort: process.env.SMTP_PORT,
     smtpUser: process.env.SMTP_USER,
     smtpPass: process.env.SMTP_PASS,
+    contactToEmail: process.env.CONTACT_TO_EMAIL || process.env.SMTP_USER,
     public: {
       NUXT_PUBLIC_API_BASE_URL: process.env.NUXT_PUBLIC_API_BASE_URL,
+      emailjsServiceId: process.env.NUXT_PUBLIC_EMAILJS_SERVICE_ID,
+      emailjsTemplateId: process.env.NUXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+      emailjsPublicKey: process.env.NUXT_PUBLIC_EMAILJS_PUBLIC_KEY,
     },
   },
 

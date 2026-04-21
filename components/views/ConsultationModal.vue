@@ -230,9 +230,10 @@
 import { ref, watch } from "vue";
 import emailjs from "@emailjs/browser";
 
-const EMAILJS_SERVICE_ID = "service_0td2ckc";
-const EMAILJS_TEMPLATE_ID = "template_cup5k3s";
-const EMAILJS_PUBLIC_KEY = "bnV1yS3_3pXROwqc1";
+const config = useRuntimeConfig();
+const EMAILJS_SERVICE_ID = config.public.emailjsServiceId;
+const EMAILJS_TEMPLATE_ID = config.public.emailjsTemplateId;
+const EMAILJS_PUBLIC_KEY = config.public.emailjsPublicKey;
 
 const props = defineProps<{ modelValue: boolean }>();
 const emit = defineEmits<{ (e: "update:modelValue", val: boolean): void }>();
@@ -287,6 +288,9 @@ async function submitForm() {
 
   status.value = "loading";
   try {
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      throw new Error("EmailJS config missing");
+    }
     const params = {
       from_name: form.value.name,
       company: form.value.company || "kiritilmagan",

@@ -9,6 +9,9 @@ export default defineEventHandler(async (event) => {
   }
 
   const config = useRuntimeConfig();
+  if (!config.contactToEmail) {
+    throw createError({ statusCode: 500, statusMessage: "CONTACT_TO_EMAIL is not configured" });
+  }
 
   const transporter = nodemailer.createTransport({
     host: config.smtpHost,
@@ -22,7 +25,7 @@ export default defineEventHandler(async (event) => {
 
   await transporter.sendMail({
     from: `"NEXT SPOT Form" <${config.smtpUser}>`,
-    to: "tokh1rov.code@gmail.com",
+    to: config.contactToEmail,
     subject: `[相談フォーム] ${subject}`,
     html: `
       <h2>新しい相談申込み</h2>
