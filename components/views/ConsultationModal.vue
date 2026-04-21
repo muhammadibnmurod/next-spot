@@ -170,7 +170,7 @@
               <label
                 class="text-[11px] font-semibold text-gray-500 uppercase tracking-wider"
               >
-                {{ $t("consultation.company") }}
+                {{ $t("consultation.message") }}
               </label>
               <input
                 v-model="form.subject"
