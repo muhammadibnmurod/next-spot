@@ -6,7 +6,6 @@ export default defineNuxtConfig({
   components: [
     { path: "~/components", pathPrefix: false },
     { path: "~/components/ui", pathPrefix: false },
-    { path: "~/components/layout", pathPrefix: false },
   ],
 
   plugins: ["@/plugins/pinia-persistedstate.js"],
@@ -26,7 +25,7 @@ export default defineNuxtConfig({
   ],
 
   devServer: {
-    host: "*",
+    host: "0.0.0.0",
     port: 3000,
   },
 
@@ -123,19 +122,49 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: "Next Spot",
+      title: "Next Spot | Yaponiya bozoriga kirish — Lead the Frontier",
+      titleTemplate: "%s | Next Spot",
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         { charset: "utf-8" },
-        { name: "theme-color", content: "#ffffff" },
-        { property: "og:title", content: "Next Spot" },
+        { name: "theme-color", content: "#1a3fbb" },
+        {
+          name: "description",
+          content:
+            "Next Spot — O'zbekiston va Yaponiya o'rtasidagi biznes ko'prik. Yaponiya bozoriga kirish, investitsiya va hamkorlik bo'yicha professional xizmatlar.",
+        },
+        {
+          name: "keywords",
+          content:
+            "Next Spot, NextSpot, next spot, nextspot, nextspot.uz, Yaponiya biznes, O'zbekiston Yaponiya, bozorga kirish, investitsiya, hamkorlik",
+        },
+        { name: "robots", content: "index, follow" },
+        { name: "author", content: "Next Spot" },
+        // Open Graph
+        { property: "og:title", content: "Next Spot | Lead the Frontier" },
         { property: "og:site_name", content: "Next Spot" },
         { property: "og:type", content: "website" },
         { property: "og:url", content: "https://nextspot.uz/" },
-        { property: "og:description", content: "LEAD THE FRIONTIER" },
+        {
+          property: "og:description",
+          content:
+            "Next Spot — O'zbekiston va Yaponiya o'rtasidagi biznes ko'prik. Yaponiya bozoriga kirish, investitsiya va hamkorlik bo'yicha professional xizmatlar.",
+        },
         { property: "og:image", content: "https://nextspot.uz/images/logo2.png" },
+        { property: "og:locale", content: "uz_UZ" },
+        // Twitter Card
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:title", content: "Next Spot | Lead the Frontier" },
+        {
+          name: "twitter:description",
+          content: "Next Spot — Yaponiya bozoriga kirish bo'yicha professional xizmatlar.",
+        },
+        { name: "twitter:image", content: "https://nextspot.uz/images/logo2.png" },
       ],
-      link: [{ rel: "icon", type: "image/png", href: "/images/logo2.png" }],
+      link: [
+        { rel: "icon", type: "image/png", href: "/images/logo2.png" },
+        { rel: "canonical", href: "https://nextspot.uz/" },
+      ],
     },
   },
 
