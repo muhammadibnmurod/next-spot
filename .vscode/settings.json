@@ -5,15 +5,32 @@
   "editor.quickSuggestions": {
     "strings": "on"
   },
-  "tailwindCSS.classAttributes": ["class", "ui"],
+  "tailwindCSS.classAttributes": [
+    "class",
+    "ui"
+  ],
   "tailwindCSS.experimental.classRegex": [
-    ["ui:\\s*{([^)]*)\\s*}", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+    [
+      "ui:\\s*{([^)]*)\\s*}",
+      "(?:'|\"|`)([^']*)(?:'|\"|`)"
+    ]
   ],
   "i18n-ally.sortKeys": true,
   "i18n-ally.keystyle": "nested",
   "i18n-ally.displayLanguage": "uz",
   "i18n-ally.sourceLanguage": "uz",
   "i18n-ally.localesPaths": [
+    "./locales/uz",
+    "./locales/uz_cyr",
+    "./locales/ru",
+    "./locales/en",
+    "./locales/ko"
+  ],
+  "i18n-ally-next.sortKeys": true,
+  "i18n-ally-next.keystyle": "nested",
+  "i18n-ally-next.displayLanguage": "uz",
+  "i18n-ally-next.sourceLanguage": "uz",
+  "i18n-ally-next.localesPaths": [
     "./locales/uz",
     "./locales/uz_cyr",
     "./locales/ru",
