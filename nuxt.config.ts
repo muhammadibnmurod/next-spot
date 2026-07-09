@@ -131,7 +131,7 @@ export default defineNuxtConfig({
         {
           name: "description",
           content:
-            "Next Spot — O'zbekiston va Yaponiya o'rtasidagi biznes ko'prik. Yaponiya bozoriga kirish, investitsiya va hamkorlik bo'yicha professional xizmatlar.",
+            "Next Spot- A trusted business bridge between Japan and Uzbekistan.",
         },
         {
           name: "keywords",
@@ -148,7 +148,7 @@ export default defineNuxtConfig({
         {
           property: "og:description",
           content:
-            "Next Spot — O'zbekiston va Yaponiya o'rtasidagi biznes ko'prik. Yaponiya bozoriga kirish, investitsiya va hamkorlik bo'yicha professional xizmatlar.",
+            "Next Spot- A trusted business bridge between Japan and Uzbekistan.",
         },
         { property: "og:image", content: "https://nextspot.uz/images/logo2.png" },
         { property: "og:locale", content: "uz_UZ" },

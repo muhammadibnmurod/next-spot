@@ -16,7 +16,7 @@ useHead({
     {
       name: "description",
       content:
-        "Next Spot — O'zbekiston va Yaponiya o'rtasidagi biznes ko'prik. Yaponiya bozoriga kirish, investitsiya va hamkorlik bo'yicha professional xizmatlar.",
+        "Next Spot- A trusted business bridge between Japan and Uzbekistan.",
     },
     {
       name: "keywords",
@@ -44,7 +44,7 @@ useHead({
         url: "https://nextspot.uz",
         logo: "https://nextspot.uz/images/logo2.png",
         description:
-          "Next Spot — O'zbekiston va Yaponiya o'rtasidagi biznes ko'prik. Yaponiya bozoriga kirish, investitsiya va hamkorlik bo'yicha professional xizmatlar.",
+          "Next Spot- A trusted business bridge between Japan and Uzbekistan.",
         address: {
           "@type": "PostalAddress",
           addressCountry: "UZ",
